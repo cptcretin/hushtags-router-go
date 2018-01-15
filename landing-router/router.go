@@ -30,18 +30,7 @@ func CreateServer() *http.Server {
 }
 
 func serveTag(w http.ResponseWriter, r *http.Request) {
-	handle := mux.Vars(r)["tagHandle"]
-
-	if handle == "dnKccFf" ||
-		handle == "iIdKcpM" ||
-		handle == "BOLHiiU" ||
-		handle == "npOdcEJ" ||
-		handle == "bCiVZJn" {
-
-		http.Redirect(w, r, "https://hushtags-dev.herokuapp.com/multiple-tags"+r.URL.Path, http.StatusTemporaryRedirect)
-	} else {
-		http.ServeFile(w, r, "www/index.html")
-	}
+	http.ServeFile(w, r, "www/index.html")
 }
 
 func serveAssetLinks(w http.ResponseWriter, r *http.Request) {
