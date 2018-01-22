@@ -40,6 +40,7 @@ func CreateServer() *http.Server {
 
 	r.HandleFunc("/.well-known/assetlinks.json", serveAssetLinks).Methods("GET")
 	r.HandleFunc("/privacy", servePrivacyPolicy).Methods("GET")
+	r.HandleFunc("/eula", serveEula).Methods("GET")
 	r.HandleFunc("/{tagHandle}", serveTag).Methods("GET")
 
 	n := negroni.New()
@@ -60,4 +61,8 @@ func serveAssetLinks(w http.ResponseWriter, r *http.Request) {
 
 func servePrivacyPolicy(w http.ResponseWriter, r *http.Request) {
 	http.ServeFile(w, r, "./static/privacy.htm")
+}
+
+func serveEula(w http.ResponseWriter, r *http.Request) {
+	http.ServeFile(w, r, "./static/eula.pdf")
 }
