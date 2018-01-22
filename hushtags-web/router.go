@@ -38,8 +38,9 @@ func CreateServer() *http.Server {
 	r.PathPrefix("/help").Handler(rootHandler).Methods("GET")
 	r.PathPrefix("/author").Handler(rootHandler).Methods("GET")
 
-	r.HandleFunc("/{tagHandle}", serveTag).Methods("GET")
 	r.HandleFunc("/.well-known/assetlinks.json", serveAssetLinks).Methods("GET")
+	r.HandleFunc("/privacy", servePrivacyPolicy).Methods("GET")
+	r.HandleFunc("/{tagHandle}", serveTag).Methods("GET")
 
 	n := negroni.New()
 	n.Use(negroni.NewStatic(http.Dir("www/")))
@@ -54,7 +55,9 @@ func serveTag(w http.ResponseWriter, r *http.Request) {
 }
 
 func serveAssetLinks(w http.ResponseWriter, r *http.Request) {
-	w.Header().Set("Content-Type", "application/json")
-	w.Header().Set("Content-Size", "300")
-	http.ServeFile(w, r, "./assetlinks.json")
+	http.ServeFile(w, r, "./static/assetlinks.json")
+}
+
+func servePrivacyPolicy(w http.ResponseWriter, r *http.Request) {
+	http.ServeFile(w, r, "./static/privacy.htm")
 }
