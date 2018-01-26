@@ -45,6 +45,7 @@ func CreateServer() *http.Server {
 
 	n := negroni.New()
 	n.Use(negroni.NewStatic(http.Dir("www/")))
+	n.Use(negroni.NewStatic(http.Dir("static/")))
 	n.UseHandler(r)
 
 	return &http.Server{Addr: ":" + os.Getenv("PORT"), Handler: n}
