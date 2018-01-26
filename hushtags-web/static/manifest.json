@@ -23,7 +23,7 @@
       "sizes": "256x256"
     }
   ],
-  "start_url": "?utm_source=homescreen",
+  "start_url": "/?utm_source=homescreen",
   "background_color": "#e26326",
   "theme_color": "#e26326",
   "display": "standalone",
