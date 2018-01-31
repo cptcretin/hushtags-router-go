@@ -26,6 +26,7 @@ func CreateServer() *http.Server {
 	r := mux.NewRouter().StrictSlash(false)
 	rootHandler := AppRootHandler{}
 
+	r.PathPrefix("/install-app").Handler(rootHandler)
 	r.PathPrefix("/discover-tag").Handler(rootHandler)
 	r.PathPrefix("/multiple-tags").Handler(rootHandler)
 	r.PathPrefix("/single-tags").Handler(rootHandler)
