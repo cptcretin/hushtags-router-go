@@ -39,6 +39,7 @@ func CreateServer() *http.Server {
 	r.PathPrefix("/help").Handler(rootHandler)
 	r.PathPrefix("/author").Handler(rootHandler)
 
+	r.HandleFunc("/notebook", serveNotebook)
 	r.HandleFunc("/.well-known/assetlinks.json", serveAssetLinks)
 	r.HandleFunc("/privacy", servePrivacyPolicy)
 	r.HandleFunc("/eula", serveEula)
@@ -50,6 +51,10 @@ func CreateServer() *http.Server {
 	n.UseHandler(r)
 
 	return &http.Server{Addr: ":" + os.Getenv("PORT"), Handler: n}
+}
+
+func serveNotebook(w http.ResponseWriter, r *http.Request) {
+	http.Redirect(w, r, "https://www.etsy.com/listing/661236717/hushtags-smart-notebook-personal-journal?ref=listing_published_alert", http.StatusTemporaryRedirect)
 }
 
 func serveTag(w http.ResponseWriter, r *http.Request) {
