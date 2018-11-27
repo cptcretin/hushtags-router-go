@@ -54,7 +54,7 @@ func CreateServer() *http.Server {
 }
 
 func serveNotebook(w http.ResponseWriter, r *http.Request) {
-	http.Redirect(w, r, "https://www.etsy.com/listing/661236717/hushtags-smart-notebook-personal-journal?ref=listing_published_alert", http.StatusTemporaryRedirect)
+	http.Redirect(w, r, "https://spark.adobe.com/page/B4h9DmJ3ghdma/", http.StatusTemporaryRedirect)
 }
 
 func serveTag(w http.ResponseWriter, r *http.Request) {
