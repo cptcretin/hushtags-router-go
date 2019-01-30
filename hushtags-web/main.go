@@ -40,6 +40,8 @@ func CreateServer() *http.Server {
 	r.PathPrefix("/author").Handler(rootHandler)
 
 	r.HandleFunc("/notebook", serveNotebook)
+	r.HandleFunc("/portal", servePortal)
+	r.HandleFunc("/portal/", servePortal)
 	r.HandleFunc("/.well-known/assetlinks.json", serveAssetLinks)
 	r.HandleFunc("/privacy", servePrivacyPolicy)
 	r.HandleFunc("/eula", serveEula)
@@ -48,6 +50,7 @@ func CreateServer() *http.Server {
 	n := negroni.New()
 	n.Use(negroni.NewStatic(http.Dir("www/")))
 	n.Use(negroni.NewStatic(http.Dir("static/")))
+	n.Use(negroni.NewStatic(http.Dir("static/portal/")))
 	n.UseHandler(r)
 
 	return &http.Server{Addr: ":" + os.Getenv("PORT"), Handler: n}
@@ -72,4 +75,8 @@ func servePrivacyPolicy(w http.ResponseWriter, r *http.Request) {
 
 func serveEula(w http.ResponseWriter, r *http.Request) {
 	http.ServeFile(w, r, "./static/eula.pdf")
+}
+
+func servePortal(w http.ResponseWriter, r *http.Request) {
+	http.ServeFile(w, r, "./static/portal/index.htm")
 }

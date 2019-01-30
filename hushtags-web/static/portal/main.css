@@ -1,0 +1,68 @@
+html {
+	height: 100%;
+}
+
+body {
+	position: relative;
+	background: #197652;
+	height: 100%;
+	overflow: hidden;
+	margin: 0px;
+}
+
+.main-logo {
+	position: absolute;
+	top: 0px;
+	left: 0px;
+	bottom: 0px;
+	right: 0px;
+	margin: auto;
+}
+
+header {
+	position: absolute;
+	display: block;
+	top: 0px;
+	font-family: Arial;
+	font-size: larger;
+	color: white;
+	opacity: 0.6;
+	background: #000;
+	width: 100%;
+	padding: 10px;
+	z-index: 1;
+}
+
+header .seperator {
+	display: inline-block;
+	margin: 0px 20px;
+}
+
+header .seperator:after {
+	content: "·";
+}
+
+header a {
+	font-family: Arial;
+	font-size: large;
+	color: white;
+	text-decoration: none;
+	margin: 0px 10px;
+}
+
+header a:hover {
+	text-decoration: underline;
+}
+
+footer {
+	position: absolute;
+	display: block;
+	bottom: 0px;
+	font-family: Arial;
+	font-size: small;
+	color: white;
+	opacity: 0.6;
+	background: #000;
+	width: 100%;
+	padding: 10px;
+}
