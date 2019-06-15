@@ -39,6 +39,7 @@ func CreateServer() *http.Server {
 	r.PathPrefix("/help").Handler(rootHandler)
 	r.PathPrefix("/author").Handler(rootHandler)
 
+	r.HandleFunc("/join", serveJoin)
 	r.HandleFunc("/notebook", serveNotebook)
 	r.HandleFunc("/portal", servePortal)
 	r.HandleFunc("/portal/", servePortal)
@@ -56,6 +57,10 @@ func CreateServer() *http.Server {
 	n.UseHandler(r)
 
 	return &http.Server{Addr: ":" + os.Getenv("PORT"), Handler: n}
+}
+
+func serveJoin(w http.ResponseWriter, r *http.Request) {
+	http.Redirect(w, r, "https://spark.adobe.com/page/16xMevEh8Cw81/", http.StatusTemporaryRedirect)
 }
 
 func serveNotebook(w http.ResponseWriter, r *http.Request) {
