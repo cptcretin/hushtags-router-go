@@ -41,6 +41,8 @@ func CreateServer() *http.Server {
 
 	r.HandleFunc("/join", serveJoin)
 	r.HandleFunc("/notebook", serveNotebook)
+	r.HandleFunc("/journal", serveNotebook)
+	r.HandleFunc("/free-journal", serveJournalCampaign)
 	r.HandleFunc("/portal", servePortal)
 	r.HandleFunc("/portal/", servePortal)
 	r.HandleFunc("/ios/", serveIos)
@@ -65,6 +67,10 @@ func serveJoin(w http.ResponseWriter, r *http.Request) {
 
 func serveNotebook(w http.ResponseWriter, r *http.Request) {
 	http.Redirect(w, r, "https://spark.adobe.com/page/B4h9DmJ3ghdma/", http.StatusTemporaryRedirect)
+}
+
+func serveJournalCampaign(w http.ResponseWriter, r *http.Request) {
+	http.Redirect(w, r, "https://mailchi.mp/ad5b8053a8c9/free-smart-journal", http.StatusTemporaryRedirect)
 }
 
 func serveTag(w http.ResponseWriter, r *http.Request) {
