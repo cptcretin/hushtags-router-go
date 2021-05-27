@@ -47,6 +47,7 @@ func CreateServer() *http.Server {
 	r.HandleFunc("/portal/", servePortal)
 	r.HandleFunc("/ios/", serveIos)
 	r.HandleFunc("/.well-known/assetlinks.json", serveAssetLinks)
+	r.HandleFunc("/.well-known/apple-app-site-association", serveAppleApp)
 	r.HandleFunc("/privacy", servePrivacyPolicy)
 	r.HandleFunc("/eula", serveEula)
 	r.HandleFunc("/{tagHandle}", serveTag)
@@ -96,4 +97,8 @@ func servePortal(w http.ResponseWriter, r *http.Request) {
 
 func serveIos(w http.ResponseWriter, r *http.Request) {
 	http.ServeFile(w, r, "./static/ios/index.htm")
+}
+
+func serveAppleApp(w http.ResponseWriter, r *http.Request) {
+	http.ServeFile(w, r, "./static/apple-app-site-association.json")
 }
