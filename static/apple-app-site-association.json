@@ -2,54 +2,8 @@
   "applinks": {
       "details": [
            {
-             "appIDs": [ "JCQXMWDP3V.com.hushtagsapp.ios", "N8AGJ3QZHT.com.hushtagsapp.ios" ],
-             "components": [
-               {
-                  "#": "no_universal_links",
-                  "exclude": true,
-                  "comment": "Matches any URL whose fragment equals no_universal_links and instructs the system not to open it as a universal link"
-               },
-                {
-                    "/": "/join/*",
-                    "exlcude": true,
-                    "comment": "Exclude"
-                },
-                {
-                    "/": "/notebook/*",
-                    "exlcude": true,
-                    "comment": "Exclude"
-                },
-                {
-                    "/": "/journal/*",
-                    "exlcude": true,
-                    "comment": "Exclude"
-                },
-                {
-                    "/": "/free-journal/*",
-                    "exlcude": true,
-                    "comment": "Exclude"
-                },
-                {
-                    "/": "/portal/*",
-                    "exlcude": true,
-                    "comment": "Exclude"
-                },
-                {
-                    "/": "/portal/*",
-                    "exlcude": true,
-                    "comment": "Exclude"
-                },
-                {
-                    "/": "/ios/*",
-                    "exlcude": true,
-                    "comment": "Exclude"
-                },
-               {
-                  "/": "/*",
-                  "comment": "Matches any URL that is tag"
-               }
-             ]
-           }
+             "appIDs": [ "N8AGJ3QZHT.com.hushtagsapp.ios" ],
+             "paths": [ "*" ]
        ]
    },
    "webcredentials": {
