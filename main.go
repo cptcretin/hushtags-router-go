@@ -100,5 +100,6 @@ func serveIos(w http.ResponseWriter, r *http.Request) {
 }
 
 func serveAppleApp(w http.ResponseWriter, r *http.Request) {
+	w.Header().Set("Content-Type", "application/pkcs7-mime")
 	http.ServeFile(w, r, "./static/apple-app-site-association.json")
 }
