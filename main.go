@@ -26,18 +26,15 @@ func CreateServer() *http.Server {
 	r := mux.NewRouter().StrictSlash(false)
 	rootHandler := AppRootHandler{}
 
-	r.PathPrefix("/install-app").Handler(rootHandler)
-	r.PathPrefix("/discover-tag").Handler(rootHandler)
-	r.PathPrefix("/multiple-tags").Handler(rootHandler)
-	r.PathPrefix("/single-tags").Handler(rootHandler)
-	r.PathPrefix("/view-media").Handler(rootHandler)
-	r.PathPrefix("/cart").Handler(rootHandler)
+	r.PathPrefix("/home").Handler(rootHandler)
+	r.PathPrefix("/start").Handler(rootHandler)
+	r.PathPrefix("/discover").Handler(rootHandler)
+	r.PathPrefix("/view").Handler(rootHandler)
+	r.PathPrefix("/about").Handler(rootHandler)
 	r.PathPrefix("/store").Handler(rootHandler)
-	r.PathPrefix("/report-content").Handler(rootHandler)
-	r.PathPrefix("/report-successful").Handler(rootHandler)
+	r.PathPrefix("/cart").Handler(rootHandler)
 	r.PathPrefix("/error").Handler(rootHandler)
 	r.PathPrefix("/help").Handler(rootHandler)
-	r.PathPrefix("/author").Handler(rootHandler)
 
 	r.HandleFunc("/join", serveJoin)
 	r.HandleFunc("/notebook", serveNotebook)
@@ -64,7 +61,7 @@ func CreateServer() *http.Server {
 }
 
 func serveJoin(w http.ResponseWriter, r *http.Request) {
-	http.Redirect(w, r, "https://spark.adobe.com/page/16xMevEh8Cw81/", http.StatusTemporaryRedirect)
+	http.Redirect(w, r, "/home", http.StatusTemporaryRedirect)
 }
 
 func serveNotebook(w http.ResponseWriter, r *http.Request) {
@@ -77,7 +74,7 @@ func serveJournalCampaign(w http.ResponseWriter, r *http.Request) {
 
 func serveTag(w http.ResponseWriter, r *http.Request) {
 	h := mux.Vars(r)["tagHandle"]
-	http.Redirect(w, r, "/discover-tag/"+h, http.StatusTemporaryRedirect)
+	http.Redirect(w, r, "/discover/"+h, http.StatusTemporaryRedirect)
 }
 
 func serveAssetLinks(w http.ResponseWriter, r *http.Request) {

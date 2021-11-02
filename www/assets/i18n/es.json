@@ -1,0 +1,291 @@
+{
+	"App_Translation_Missing": "APP TRADUCCIÓN NECESARIA",
+
+	"Common": {
+		"Error_Bad_Credentials": "No pudimos verificar su cuenta. Por favor, inténtelo de nuevo.",
+		"Error_Missing_Title": "Proporcione lo siguiente",
+		"Error_Missing_Message": "Los siguientes campos requieren valores: <ul>{missing}</ul>",
+		"Error_General": "Estamos experimentando dificultades de nuestra parte. Por favor, inténtalo de nuevo.",
+		"Button_OK": "Bien",
+		"Button_Cancel": "Cancelar"
+	},
+
+	"Page_Sign_In": {
+		"Title": "Inicie sesión en",
+		"Tag_Line": "¡Tipping Simplified Start Earning Hoy mismo!",
+		"Identity": "Dirección de correo electrónico / Número de teléfono",
+		"Password": "Contraseña",
+		"Forgot_Password": "¿Olvidó su contraseña?",
+		"Remember_Me": "¿Recuérdame?",
+		"Sign_In": "Inicia sesión",
+		"Sign_Up_Prompt": "¿No tienes una cuenta?",
+		"Sign_Up": "Únete",
+		"Password_Reset_Heading": "Su Contraseña Ha Sido Restablecida",
+		"Password_Reset_Message": "Se le ha enviado un correo electrónico con instrucciones para restablecer su contraseña.",
+		"Password_Reset_Successful": "Su contraseña ha sido restablecida",
+		"Error_Password_Reset_Heading": "No Se Pudo Restablecer la Contraseña",
+		"Error_Password_Reset_Message": "Hubo un problema para restablecer su contraseña. Por favor, inténtelo de nuevo.",
+		"Error_Pasword_Change_Heading": "No Pudimos Restablecer su Contraseña",
+		"Error_Pasword_Change_Message": "Hubo un problema al restablecer la contraseña. Por favor, inténtelo de nuevo.",
+		"Button_Save": "Bien"		
+	},
+
+	"Page_Sign_Up": {
+		"Title": "Regístrese para",
+		"Tag_Line": "¡Tipping Simplified Start Earning Hoy mismo!",
+		"Intro_Line_1": "Un vínculo directo entre Creadores y Oyentes.",
+		"Intro_Line_2": "Utilelo para obtener dinero de tus creaciones web.",
+		"First_Name": "Nombre",
+		"Last_Name": "Apellido",
+		"Email": "Dirección de correo electrónico",
+		"Phone": "Número de Teléfono Móvil",
+		"Password": "Contraseña",
+		"Terms_Prompt": "Al registrarse, usted está de acuerdo con la",
+		"Terms_Link": "Condiciones del Servicio",
+		"Sign_Up": "Únete",
+		"Sign_In_Prompt": "¿Tiene una cuenta?",
+		"Sign_In": "Inicie",
+		"Creation_Failed_Title": "No se Pudo Crear su Cuenta",
+		"Error_Bad_Email": "Esto no parece ser una dirección de correo electrónico válida"		
+	},
+
+	"Page_Embed": {
+		"Title": "Insertar deHat",
+		"Instruction": "Cree un código personalizado para agregar deHat a sus medios.",
+		"Greeting": "Bienvenido a la Beta deHat 0.1",
+		"Greeting_Tips": "Recoge Consejos en Tus Medios",
+		"Greeting_Feedback": "Invitamos a sus comentarios",
+		"Copy_Code": "Copia Código",
+		"Code_Copied": "El código se ha copiado en el portapapeles",
+		"Copy_Link": "Copiar Enlace",
+		"Link_Copied": "El enlace se ha copiado en el portapapeles",
+		"Display_Name_Title": "Nombre",
+		"Display_Name": "Elija un nombre para representarle en deHat",
+		"IFrame_Code_Title": "Código de Inserción",
+		"IFrame_Code": "Utilice esto para incrustar deHat en sus canales web",
+		"Link_Title": "Enlace",
+		"Link": "Utilice este enlace en sus redes sociales",
+		"Delete_Code_Confirm_Title": "¿Desactivar Código?",
+		"Delete_Code_Confirm_Message": "¿Desativar este código y quitarlo del panel?",
+		"Delete_Code_Confirm_OK": "Bien",
+		"Delete_Code_Confirm_Cancel": "Cancelar"
+	},
+
+	"Page_Profile": {
+		"Title": "Editar Perfil",
+		"Change_Photo": "Cambiar foto",
+		"Personal_Heading": "Información Personal",
+		"First_Name": "Nombre",
+		"Last_Name": "Apellido",
+		"Email": "Dirección de correo electrónico",
+		"Phone_Number": "Número de Teléfono Móvil",
+		"Save": "Salvar",
+		"Notifications_Title": "Configuración de notificaciones",
+		"Notifications_Heading": "Notificar Cuando",
+		"Notifications_Email_Heading": "Correo electrónico",
+		"Notifications_SMS_Heading": "SMS",
+		"Notifications_Tip_Heading": "Recibió un consejo",
+		"Notifications_Payout_Heading": "Alerta de pago automatizada",
+		"Notifications_Message_Heading": "Recibió un mensaje de fans",
+		"Notifications_Promo_Heading": "Anuncio promocional",
+		"Notifications_Every": "Notificar a Todos Los",
+		"Notifications_Every_Day": "Dia",
+		"Notifications_Every_Week": "Semana (en Viernes)",
+		"Notifications_Every_Month": "Mes (el 1er)",
+		"Password_Heading": "Cambiar Contraseña",
+		"Old_Password": "Contraseña Actual",
+		"New_Password": "Contraseña Nuevo",
+		"Image_Updated": "Su imagen de perfil ha sido actualizada",
+		"Name_Updated": "Su nombre para mostrar se ha actualizado",
+		"Profile_Updated": "Su perfil ha sido actualizado",
+		"Profile_Update_Failed_Heading": "No Pudimos Actualizar su Perfil",
+		"Password_Updated": "Su contraseña ha sido actualizada",
+		"Password_Update_Failed_Heading": "No Pudimos Actualizar su Ccontraseña",
+		"Two_Factor_Heading": "Autenticación de dos Factores",
+		"Two_Factor": "Habilitar dos Factores",
+		"Toast_2FA_Enabled": "La autenticación de dos factores está habilitada",
+		"Toast_2FA_Disabled": "La autenticación de dos factores está deshabilitada",
+		"Button_Try_Again": "Vuelve a Intentarlo",
+		"Button_Cancel": "Cancelar",
+		"Error_Bad_Email": "El correo electrónico no es válido",
+		"Error_OTP_Bad_Pass_Heading": "Código de Pase Incorrecto",
+		"Error_OTP_Bad_Pass_Message": "El código de acceso introducido era incorrecto.",		
+		"Error_OTP_Other_Heading": "No Se Pudo Habilitar Dos Factores",
+		"Error_OTP_Other_Message": "Nos encontramos con un problema al configurar dos factores para usted. Por favor, inténtelo de nuevo.",
+		"Error_Update_Heading": "Su perfil No Se Pudo Actualizar",
+		"Error_Incorrect_Password_Heading": "Contraseña Incorrecta",
+		"Error_Incorrect_Password_Message": "Por favor, proporcione la corregir contraseña"
+	},
+	
+	"Page_Statement": {
+		"Title": "Declaraciones",
+		"Download_Button": "Descargar",
+		"Today_Date": "Ahora",
+		"Yesterday_Date": "Ayer",
+		"Download": "Descargar CSV",
+		"Download_Started": "Su descarga está siendo procesada",
+		"Download_Error_Heading": "No Pudimos Iniciar su Exportación",
+		"Download_Error_Message": "Nos encontramos con un problema al preparar su exportación. Inténtelo de nuevo más tarde.",
+		"Download_Error_Button": "Salvar"
+	},
+	
+	"Page_Transfer": {
+		"Title": "Transferencias",
+		"Today_Date": "Ahora",
+		"Yesterday_Date": "Ayer",
+		"Transfer_Description": "Las transferencias regulares se realizan en la X del mes. Una vez que tenga un mínimo de $10 en su Sombrero, puede transferir en cualquier momento. Si desea transferir dinero con un saldo inferior a $10, se le cobrará x (para cubrir los costos bancarios).",
+		"Transfer_Button": "Transferir dinero",
+		"Payout_Started": "Su pago está siendo procesado",
+		"Payout_Error_Heading": "No se Pudo Procesar el Pago",
+		"Payout_Error_Message": "Nos encontramos con un problema al procesar su pago. Inténtelo de nuevo más tarde.",
+		"Payout_Error_Button": "Salvar"
+	},
+	
+	"Page_Support": {
+		"Title": "Apoyo",
+		"Instruction": "Por favor envíenos un mensaje con su preocupación. Nos pongamos en contacto con usted lo antes posible.",
+		"Help_Option_Prompt": "¿Cómo podemos ayudarte?",
+		"Help_Option_Codes": "Tengo problemas para crear códigos",
+		"Help_Option_Pay_Method": "Estoy tratando de configurar mi opción de pago",
+		"Help_Option_Payout": "Tengo problemas para recibir un pago",
+		"Help_Option_Transactions": "Me faltan transacciones",
+		"Help_Option_Other": "Otro",
+		"Describe_Prompt": "Yalovinaka qai vakamacalataka na nomu ilavelave",
+		"Send": "Vakauta",
+		"Message_Sent": "Su mensaje ha sido entregado",
+		"Error_Recaptcha": "Error en la verificación de Recaptcha",
+		"Error_Send_Heading": "Mensaje no Entregado",
+		"Error_Send_Message": "Tuvimos problemas para entregar su mensaje. Por favor, inténtelo de nuevo.",
+		"Button_Save": "Bien"
+	},
+
+	"Page_Session_Ended": {
+		"Title": "Has Sido Firmado",
+		"Description": "Has sido firmado debido a la inactividad. Por favor, inicie sesión de nuevo si desea continuar."
+	},
+	
+	"Component_Earnings": {
+		"Title": "En mi Hat",
+		"30Day": "30 Días",
+		"60Day": "60 Días",
+		"90Day": "90 Días",
+		"Earn_Message": "Te has ganado",
+		"Days_Message": "en los últimos {{days}} días",
+		"Transfers_Button": "Ir a Transferencias para transferir dinero",
+		"Transfers_Pre": "Vete a",
+		"Transfers_Post": "para transferir dinero"		
+	},
+
+	"Component_TransferMethodCard": {
+		"Title": "Método de Transferencia",
+		"Add_Button": "Añadir tarjeta",
+		"Change_Button": "Cambio",
+		"Instruction": "Aún no ha configurado un método de transferencia."
+	},
+
+	"Component_HomeMenu": {
+		"How_It_Works": "Cómo Funciona",
+		"Fees": "Honorarios",
+		"Contact_Us": "Contáctenos",
+		"Log_In": "Inicia sesión",
+		"Sign_Up": "Únete"
+	},
+	
+	"Component_HomeFooter": {
+		"Company_Heading": "Empresa",
+		"Legal_Heading": "Legal",
+		"Follow_Heading": "Síguenos",
+		"Home": "Página de Inicio",
+		"Terms": "Términos y Condiciones",
+		"Facebook": "Facebook",
+		"theHat": "deHat",
+		"Privacy": "Privacidad",
+		"Instagram": "Instagram",
+		"Fees": "Honorarios",
+		"Security": "Seguridad",
+		"Twitter": "Twitter",
+		"Contact": "Contáctenos",		
+		"Copyright": "Derechos de Autor © 2020 Hattitude, Inc",
+		"Rights_Reserved": "Todos los derechos reservados"
+	},	
+	
+	"Dialog_Transfer_Method": {
+		"Title": "Método de Transferencia",
+		"Description": "Tarjeta de débito",
+		"Billing_Name": "Nombre de Facturación",
+		"Billing_Street1": "Calle #1",
+		"Billing_Street2": "Calle #2",
+		"Billing_City": "Ciudad",
+		"Billing_State": "Estado",
+		"Billing_Postal": "Código Postal",		
+		"Billing_Country": "País",		
+		"Agree": "Acepto los términos y condiciones de Stripe",
+		"Birthday": "Cumpleaños",
+		"SSN": "Seguro Social #",
+		"Banking_Title": "Datos Bancarios",
+		"Banking_Routing": "Número de Ruta",
+		"Banking_Account": "Número de Cuenta",
+		"Button_Cancel": "Cancelar",
+		"Button_Save": "Salvar",
+		"Error_Save_Title": "No Pudimos Configurar su Método de Transferencia",
+		"Error_Save_Message": "Nos encontramos con un problema al configurar su método de transferencia. Por favor, inténtelo de nuevo más tarde."	
+	},
+	
+	"Dialog_Channel_List": {
+		"Title": "Seleccione Sus Canales",
+		"Button_Cancel": "Cancelar",
+		"Button_Save": "Salvar"	
+	},
+
+	"Dialog_Password_Prompt": {
+		"Title": "Introduzca su Contraseña Actual",
+		"Description": "Confirme su acceso proporcionando su contraseña",
+		"Password": "Contraseña actual",
+		"Button_Cancel": "Cancelar",
+		"Button_Save": "Bien",
+		"Error_Password_Heading": "Sin Contraseña Proporcionada",
+		"Error_Password_Message": "Por favor, introduzca su contraseña"
+	},
+
+	"Dialog_Password_Reset": {
+		"Title": "Introduzca su Nueva Contraseña",
+		"Description": "Crea una nueva contraseña para tu cuenta",
+		"Password": "Nueva Contraseña",
+		"Button_Save": "Bien"
+	},
+
+	"Dialog_OTP_Prompt": {
+		"Title": "Introduzca Su Código de Pase",
+		"Description": "Introduzca el código de acceso de su mensaje de texto o aplicación de autenticación",
+		"Button_Cancel": "Cancelar",
+		"Button_Save": "Bien"
+	},
+	
+	"Dialog_Payout": {
+		"Title": "Elija un Importe de Pago",
+		"Description": "Seleccione el importe que desea transferir a su cuenta de débito",
+		"Pending_Message": "Disponible pronto",
+		"Not_Ready_Message": "Se está configurando su método de transferencia. Danos un poco de tiempo para completar este proceso. Si demora más de 10 minutos, comuníquese con el servicio de asistencia.",
+		"Button_Cancel": "Cancelar",
+		"Button_Save": "Salvar",
+		"Error_Payout_Amount_Heading": "Por Favor, Elija una Cantidad Diferente",
+		"Error_Payout_Amount_Message": "El importe de pago que haya elegido debe ser al menos {{min}} y no más que {{max}}."		
+	},
+
+	"Dialog_Country_Code": {
+		"Title": "Código de País Móvil",
+		"Description": "Seleccione el código de país para su número de teléfono Móvil",
+		"Search": "Buscar",
+		"Button_Close": "Cerrar"
+	},
+	
+	"App_Menu": {
+		"Embed": "Insertar deHat",
+		"Statements": "Declaraciones",
+		"Transfers": "Transferencias",
+		"Profile": "Editar Perfil",
+		"Terms": "Condiciones del Servicio",
+		"Support": "Apoyo",
+		"Log_Out": "Cerrar sesión"		
+	}
+}

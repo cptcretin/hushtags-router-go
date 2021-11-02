@@ -1,0 +1,285 @@
+{
+	"App_Translation_Missing": "TRADUCTION D'UNE APPLICATION NÉCESSAIRE",
+
+	"Common": {
+		"Error_Bad_Credentials": "Nous n'avons pas été en mesure de vérifier votre compte. Veuillez réessayer.",
+		"Error_Missing_Title": "Veuillez fournir les informations suivantes",
+		"Error_Missing_Message": "Les champs suivants nécessitent des valeurs : <ul>{missing}</ul>",
+		"Error_General": "Nous rencontrons des difficultés de notre côté. Veuillez réessayer.",
+		"Button_OK": "D'accord",
+		"Button_Cancel": "Annuler"
+	},	 
+
+	"Page_Sign_In": {
+		"Title": "Se connecter à",
+		"Tag_Line": "Le pourboire simplifié. Commencez à gagner de l'argent dès aujourd'hui !",
+		"Identity": "Adresse e-mail / Numéro de téléphone",
+		"Password": "Mot de passe",
+		"Forgot_Password": "Mot de passe oublié ?",
+		"Remember_Me": "Se souvenir de moi ?",
+		"Sign_In": "Se connecter",
+		"Sign_Up_Prompt": "Vous n'avez pas de compte ?",
+		"Sign_Up": "Inscrivez-vous",
+		"Password_Reset_Heading": "Votre mot de passe a été réinitialisé",
+		"Password_Reset_Message": "Un courriel vous a été envoyé avec les instructions pour réinitialiser votre mot de passe.",
+		"Password_Reset_Successful": "Votre mot de passe a été réinitialisé",
+		"Error_Password_Reset_Heading": "Votre mot de passe n'a pas pu être réinitialisé",
+		"Error_Password_Reset_Message": "Un problème est survenu lors de la réinitialisation de votre mot de passe. Veuillez réessayer.",
+		"Error_Pasword_Change_Heading": "Nous n'avons pas pu réinitialiser votre mot de passe",
+		"Error_Pasword_Change_Message": "Un problème est survenu lors de la réinitialisation de votre mot de passe. Veuillez réessayer.",
+		"Button_Save": "OK"
+	},
+
+	"Page_Sign_Up": {
+		"Title": "Inscrivez-vous pour",
+		"Tag_Line": "Le pourboire simplifié. Commencez à gagner de l'argent dès aujourd'hui !",
+		"Intro_Line_1": "Un lien direct entre les créateurs et les fans.",
+		"Intro_Line_2": "Utilisez-le pour monétiser vos créations web.",
+		"First_Name": "Prénom",
+		"Last_Name": "Nom de famille",
+		"Email": "Adresse e-mail",
+		"Phone": "Numéro de téléphone portable",
+		"Password": "Mot de passe",
+		"Terms_Prompt": "En vous inscrivant, vous acceptez les",
+		"Terms_Link": "conditions d'utilisation",
+		"Sign_Up": "S'inscrire",
+		"Sign_In_Prompt": "Vous avez un compte ?",
+		"Sign_In": "Se connecter",
+		"Creation_Failed_Title": "Votre compte n'a pas pu être créé",
+		"Error_Bad_Email": "Ceci ne semble pas être une adresse e-mail valide."
+	},
+
+	"Page_Embed": {
+		"Title": "Intégrer theHat",
+		"Instruction": "Créez un code personnalisé pour ajouter theHat à vos médias.",
+		"Greeting": "Bienvenue à theHat Beta 0.1",
+		"Greeting_Tips": "Collectez des conseils dans vos médias",
+		"Greeting_Feedback": "Nous vous invitons à nous faire part de vos commentaires",
+		"Copy_Code": "Copier le code",
+		"Code_Copied": "Le code a été copié dans votre presse-papiers.",
+		"Copy_Link": "Copier le lien",
+		"Link_Copied": "Le lien a été copié dans votre presse-papiers.",
+		"Display_Name_Title": "Nom d'affichage",
+		"Display_Name": "Choisis un nom pour te représenter dans theHat",
+		"IFrame_Code_Title": "Code d'intégration",
+		"IFrame_Code": "Utilisez ceci pour intégrer theHat dans vos chaînes web",
+		"Link_Title": "Lien",
+		"Link": "Utilisez ce lien dans vos médias sociaux",
+		"Delete_Code_Confirm_Title": "Désactiver le code ?",
+		"Delete_Code_Confirm_Message": "Désactiver ce code, et le supprimer de votre tableau de bord ?",
+		"Delete_Code_Confirm_OK": "OK",
+		"Delete_Code_Confirm_Cancel": "Annuler"
+	},
+
+	"Page_Profile": {
+		"Title": "Modifier le profil",
+		"Change_Photo": "Modifier la photo",
+		"Personal_Heading": "Informations personnelles",
+		"First_Name": "Prénom",
+		"Last_Name": "Nom de famille",
+		"Email": "Adresse électronique",
+		"Phone_Number": "Numéro de téléphone mobile",
+		"Save": "Sauvegarder",
+		"Notifications_Title": "Paramètres de notification",
+		"Notifications_Heading": "Notifier quand",
+		"Notifications_Email_Heading": "Courriel",
+		"Notifications_SMS_Heading": "SMS",
+		"Notifications_Tip_Heading": "Vous avez reçu un pourboire",
+		"Notifications_Payout_Heading": "Alerte de paiement automatisé",
+		"Notifications_Message_Heading": "Vous avez reçu un message d'un fan",
+		"Notifications_Promo_Heading": "Promotionnel",
+		"Notifications_Every": "Notifier tous les",
+		"Notifications_Every_Day": "Jour",
+		"Notifications_Every_Week": "Semaine (le vendredi)",
+		"Notifications_Every_Month": "Mois (le 1er)",
+		"Password_Heading": "Changer le mot de passe",
+		"Old_Password": "Mot de passe actuel",
+		"New_Password": "Nouveau mot de passe",
+		"Image_Updated": "Votre image de profil a été mise à jour",
+		"Name_Updated": "Votre nom d'affichage a été mis à jour",
+		"Profile_Updated": "Votre profil a été mis à jour",
+		"Profile_Update_Failed_Heading": "Nous n'avons pas pu mettre à jour votre profil",
+		"Password_Updated": "Votre mot de passe a été mis à jour",
+		"Password_Update_Failed_Heading": "Nous n'avons pas pu mettre à jour votre mot de passe",
+		"Two_Factor_Heading": "Authentification à deux facteurs",
+		"Two_Factor": "Activer l'authentification à deux facteurs",
+		"Toast_2FA_Enabled": "L'authentification à deux facteurs est activée",
+		"Toast_2FA_Disabled": "L'authentification à deux facteurs est désactivée",
+		"Button_Try_Again": "Essayez à nouveau",
+		"Button_Cancel": "Annuler",
+		"Error_Bad_Email": "L'email n'est pas valide",
+		"Error_OTP_Bad_Pass_Heading": "Mauvais code d'accès",
+		"Error_OTP_Bad_Pass_Message": "Le code d'accès saisi est incorrect.",
+		"Error_OTP_Other_Heading": "Impossible d'activer le système à deux facteurs",
+		"Error_OTP_Other_Message": "Un problème est survenu lors de la mise en place du système à deux facteurs. Veuillez réessayer.",
+		"Error_Update_Heading": "Votre profil n'a pas pu être mis à jour"
+	},
+
+	"Page_Statement": {
+		"Title": "Déclarations",
+		"Download_Button": "Télécharger",
+		"Today_Date": "Aujourd'hui",
+		"Yesterday_Date": "Hier",
+		"Download": "Télécharger CSV",
+		"Download_Started": "Votre téléchargement est en cours de traitement",
+		"Download_Error_Heading": "Nous n'avons pas pu lancer votre exportation",
+		"Download_Error_Message": "Un problème est survenu lors de la préparation de votre exportation. Veuillez réessayer plus tard.",
+		"Download_Error_Button": "OK"
+	},
+
+	"Page_Transfer": {
+		"Title": "Transferts",
+		"Today_Date": "Aujourd'hui",
+		"Yesterday_Date": "Hier",
+		"Transfer_Description": "Les transferts réguliers sont effectués une fois par mois. Une fois que vous avez un minimum de 10 $ dans votre Hat, vous pouvez effectuer un transfert à tout moment. Si vous souhaitez transférer de l'argent avec un solde inférieur à 10 $, vous devrez payer des frais bancaires).",
+		"Transfer_Button": "Transférer de l'argent",
+		"Payout_Started": "Votre paiement est en cours de traitement",
+		"Payout_Error_Heading": "Votre paiement n'a pas pu être traité",
+		"Payout_Error_Message": "Un problème est survenu lors du traitement de votre paiement. Veuillez réessayer.",
+		"Payout_Error_Button": "D'accord"
+	},
+
+	"Page_Support": {
+		"Title": "Soutien",
+		"Instruction": "Veuillez nous envoyer un message pour nous faire part de votre problème. Nous vous contacterons dès que possible.",
+		"Help_Option_Prompt": "Comment pouvons-nous vous aider ?",
+		"Help_Option_Codes": "J'ai des difficultés à créer des codes",
+		"Help_Option_Pay_Method": "J'essaie de configurer mon option de paiement.",
+		"Help_Option_Payout": "J'ai des difficultés à recevoir un paiement",
+		"Help_Option_Transactions": "Il me manque des transactions",
+		"Help_Option_Other": "Autre",
+		"Describe_Prompt": "Veuillez décrire votre problème",
+		"Send": "Envoyer",
+		"Message_Sent": "Votre message a été transmis",
+		"Error_Recaptcha": "La vérification du Recaptcha a échoué",
+		"Error_Send_Heading": "Message non délivré",
+		"Error_Send_Message": "Nous avons eu des difficultés à livrer votre message. Veuillez réessayer.",
+		"Button_Save": "D'accord"
+	},
+
+	"Page_Session_Ended": {
+		"Title": "Vous avez été déconnecté(e)",
+		"Description": "Vous avez été déconnecté pour cause d'inactivité. Veuillez vous reconnecter si vous souhaitez continuer."
+	},
+
+	"Component_Earnings": {
+		"Title": "Dans mon chapeau",
+		"30Day": "30 jours",
+		"60Day": "60 jours",
+		"90Day": "90 jours",
+		"Earn_Message": "Vous avez gagné",
+		"Days_Message": " dans les derniers {{days}} jours",
+		"Transfers_Button": "transferts",
+		"Transfers_Pre": "Allez sur",
+		"Transfers_Post": "pour transférer de l'argent"
+	},
+
+	"Component_TransferMethodCard": {
+		"Title": "Méthode de transfert",
+		"Add_Button": "Ajouter une carte",
+		"Change_Button": "Modifier",
+		"Instruction": "Vous n'avez pas encore configuré de méthode de transfert."
+	},
+
+	"Component_HomeMenu": {
+		"How_It_Works": "Comment cela fonctionne-t-il ?",
+		"Fees": "Frais",
+		"Contact_Us": "Nous contacter",
+		"Log_In": "Se connecter",
+		"Sign_Up": "S'inscrire"
+	},
+
+	"Component_HomeFooter": {
+		"Company_Heading": "Entreprise",
+		"Legal_Heading": "Legal",
+		"Follow_Heading": "Suivez-nous",
+		"Home": "Accueil",
+		"Terms": "Termes et conditions",
+		"Facebook": "Facebook",
+		"theHat": "theHat",
+		"Privacy": "Vie privée",
+		"Instagram": "Instagram",
+		"Fees": "Tarifs",
+		"Security": "Sécurité",
+		"Twitter": "Twitter",
+		"Contact": "Nous contacter",
+		"Copyright": "Copyright Â© 2020 Hattitude, Inc",
+		"Rights_Reserved": "Tous droits rÃ©servÃ©s"
+	},
+
+	"Dialog_Transfer_Method": {
+		"Title": "Mode de transfert",
+		"Description": "Carte de débit",
+		"Billing_Name": "Nom de facturation",
+		"Billing_Street1": "Rue #1",
+		"Billing_Street2": "Rue #2",
+		"Billing_City": "Ville",
+		"Billing_State": "État",
+		"Billing_Postal": "Code postal",
+		"Billing_Country": "Pays",
+		"Agree": "J'accepte les termes et conditions de Stripe",
+		"Birthday": "Date de naissance",
+		"SSN": "Numéro de sécurité sociale",
+		"Button_Cancel": "Annuler",
+		"Button_Save": "Enregistrer",
+		"Error_Save_Title": "Nous n'avons pas pu configurer votre mode de transfert",
+		"Error_Save_Message": "Nous avons rencontré un problème lors de la configuration de votre mode de transfert. Veuillez réessayer plus tard."
+	},
+
+	"Dialog_Channel_List": {
+		"Title": "Sélectionnez vos chaînes",
+		"Button_Cancel": "Annuler",
+		"Button_Save": "Enregistrer"
+	},
+
+	"Dialog_Password_Prompt": {
+		"Title": "Veuillez entrer votre mot de passe actuel",
+		"Description": "Confirmez votre accès en indiquant votre mot de passe",
+		"Password": "Mot de passe actuel",
+		"Button_Cancel": "Annuler",
+		"Button_Save": "OK",
+		"Error_Password_Heading": "Aucun mot de passe n'a été fourni",
+		"Error_Password_Message": "Veuillez entrer votre mot de passe"
+	},
+
+	"Dialog_Password_Reset": {
+		"Title": "Entrez votre nouveau mot de passe",
+		"Description": "Créez un nouveau mot de passe pour votre compte",
+		"Password": "Nouveau mot de passe",
+		"Button_Save": "OK"
+	},
+
+	"Dialog_OTP_Prompt": {
+		"Title": "Veuillez entrer votre code d'accès",
+		"Description": "Saisissez le code d'accès figurant dans votre SMS ou votre application d'authentification.",
+		"Button_Cancel": "Annuler",
+		"Button_Save": "OK"
+	},
+
+	"Dialog_Payout": {
+		"Title": "Choisissez un montant à payer",
+		"Description": "Sélectionnez le montant que vous souhaitez transférer sur votre compte de débit.",
+		"Pending_Message": "Disponible prochainement",
+		"Button_Cancel": "Annuler",
+		"Button_Save": "OK",
+		"Error_Payout_Amount_Heading": "Veuillez choisir un autre montant",
+		"Error_Payout_Amount_Message": " Le montant du paiement que vous avez choisi doit être au minimum de {{min}} et au maximum de {{max}}."
+	},
+
+	"Dialog_Country_Code": {
+		"Title": "Code pays du mobile",
+		"Description": "Sélectionnez l'indicatif du pays de votre numéro de téléphone mobile",
+		"Search": "Recherchez",
+		"Button_Close": "Fermer"
+	},
+
+	"App_Menu": {
+		"Embed": "Embed theHat",
+		"Statements": "Relevés",
+		"Transfers": "Transferts",
+		"Profile": "Modifier le profil",
+		"Terms": "Conditions générales d'utilisation",
+		"Support": "Soutenir",
+		"Log_Out": "Se déconnecter"
+	}
+}

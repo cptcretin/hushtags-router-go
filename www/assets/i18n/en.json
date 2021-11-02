@@ -1,0 +1,50 @@
+{
+	"App_Translation_Missing": "APP TRANSLATION NEEDED",
+
+	"Common": {
+		"App_Title": "Hushtags - Leave Your Mark™",
+		"Button_OK": "Okay",
+		"Button_Cancel": "Cancel",
+		"Button_Casual_Confirm": "Sure!",
+		"Button_Casual_Deny": "No Thanks",
+		"Button_Close": "Close",
+		"Button_Yes": "Yes",
+		"Button_No": "No",
+		"Error_General": "We are experiencing difficulties on our end. Please, try again."
+	},
+
+	"Page_Home": {
+	},
+
+	"Page_Start": {
+		"Welcome": "Welcome to HushTags!",
+		"Download_App": "Download the app to get started"
+	},
+	
+	"Page_Discover": {
+		"Tag_Found": "You just discovered something here! Would you like to see?",
+		"Learn_More": "What is this?"
+	},
+
+	"Page_View": {
+		"Alert_Flag_Title": "Flag Inappropriate Content",
+		"Alert_Flag_Message": "Did you find something inappropriate or illegal? Let us know so we can have it reviewed.",
+		"Alert_Flagged_Title": "Content Flagged",
+		"Alert_Flagged_Message": "Thank you. We will be reviewing this content shortly."
+	},
+
+	"Dialog_Create": {
+		"Title": "Add Your Own Message!",
+		"Message": "Did you know you can add your own message to this HushTag? Use the HushTags app to add messages and share media.",
+		"Tag_Line": "HushTags - Leave Your Mark™"
+	},
+
+	"App_Menu": {
+		"Home": "Home",
+		"Help": "Help",
+		"About": "About",
+		"Terms": "Terms & Conditions",
+		"Support": "Support",
+		"Shop": "Shop"
+	}
+}
