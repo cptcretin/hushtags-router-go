@@ -73,6 +73,10 @@ const routes = [
         path: 'create-dialog',
         loadChildren: () => Promise.all(/*! import() */[__webpack_require__.e("common"), __webpack_require__.e("src_app_create-dialog_create-dialog_module_ts")]).then(__webpack_require__.bind(__webpack_require__, /*! ./create-dialog/create-dialog.module */ 2976)).then(m => m.CreateDialogPageModule)
     },
+    {
+        path: 'about',
+        loadChildren: () => Promise.all(/*! import() */[__webpack_require__.e("default-src_app_components_components_module_ts"), __webpack_require__.e("src_app_about_about_module_ts")]).then(__webpack_require__.bind(__webpack_require__, /*! ./about/about.module */ 6985)).then(m => m.AboutPageModule)
+    },
 ];
 let AppRoutingModule = class AppRoutingModule {
 };

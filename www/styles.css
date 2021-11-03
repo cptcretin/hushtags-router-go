@@ -1267,19 +1267,22 @@ sub {
   --ion-color-shade: var(--ion-color-highlight-shade);
   --ion-color-tint: var(--ion-color-highlight-tint);
 }
-.app-menu-modal.show-modal {
-  --backdrop-opacity: var(--ion-backdrop-opacity, 0.95);
+.app-menu-modal, .app-menu-modal.show-modal {
   --ion-background-color: transparent;
 }
-.app-menu-modal.show-modal .modal-wrapper {
+.app-menu-modal .modal-wrapper, .app-menu-modal.show-modal .modal-wrapper {
   --ion-background-color: transparent;
 }
-.app-menu-modal.show-modal ion-backdrop {
+.app-menu-modal ion-backdrop, .app-menu-modal.show-modal ion-backdrop {
   background: var(--ion-color-tertiary);
+  --backdrop-opacity: var(--ion-backdrop-opacity, 0.95);
 }
 .dialog-media .modal-wrapper {
   width: 100vw;
   height: 100vh;
+}
+.dialog-create-tag .modal-wrapper {
+  min-height: 100vh;
 }
 
 /*# sourceMappingURL=styles.css.map*/
