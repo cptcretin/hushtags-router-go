@@ -397,6 +397,8 @@ class AppSetting {
 }
 const SettingKey = {
     ignore: 'ignore',
+    location: 'location',
+    locationPrompt: 'locationPrompt',
 };
 
 

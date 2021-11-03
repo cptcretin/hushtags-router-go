@@ -1284,5 +1284,11 @@ sub {
 .dialog-create-tag .modal-wrapper {
   min-height: 100vh;
 }
+.alert-location-permission .alert-wrapper {
+  max-width: 50vw;
+}
+.alert-location-permission ion-backdrop {
+  --backdrop-opacity: 0.9;
+}
 
 /*# sourceMappingURL=styles.css.map*/

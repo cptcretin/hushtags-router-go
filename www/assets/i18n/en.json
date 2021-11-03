@@ -46,5 +46,10 @@
 		"Terms": "Terms & Conditions",
 		"Support": "Support",
 		"Shop": "Shop"
+	},
+
+	"Service_Location": {
+		"Alert_Permission_Title": "We Would Like To Know Where You Found This",
+		"Alert_Permission_Message": "Knowing your location helps us and others know where messages may be found. We do not actively track your location, and your GPS is only used when HushTags are tapped.\r\n\r\nIs this alright?"
 	}
 }
