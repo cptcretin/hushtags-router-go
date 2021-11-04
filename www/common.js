@@ -449,7 +449,8 @@ const openURL = async (url, ev, direction, animation) => {
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "CreateDialogPage": () => (/* binding */ CreateDialogPage)
+/* harmony export */   "CreateDialogPage": () => (/* binding */ CreateDialogPage),
+/* harmony export */   "CssClass": () => (/* binding */ CssClass)
 /* harmony export */ });
 /* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! tslib */ 4762);
 /* harmony import */ var _raw_loader_create_dialog_page_html__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! !raw-loader!./create-dialog.page.html */ 430);
@@ -498,6 +499,55 @@ CreateDialogPage = (0,tslib__WEBPACK_IMPORTED_MODULE_4__.__decorate)([
     })
 ], CreateDialogPage);
 
+const CssClass = 'dialog-create-tag';
+
+
+/***/ }),
+
+/***/ 4911:
+/*!***********************************************************!*\
+  !*** ./src/app/empty-tag-dialog/empty-tag-dialog.page.ts ***!
+  \***********************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "EmptyTagDialogPage": () => (/* binding */ EmptyTagDialogPage),
+/* harmony export */   "CssClass": () => (/* binding */ CssClass)
+/* harmony export */ });
+/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! tslib */ 4762);
+/* harmony import */ var _raw_loader_empty_tag_dialog_page_html__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! !raw-loader!./empty-tag-dialog.page.html */ 6453);
+/* harmony import */ var _empty_tag_dialog_page_scss__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./empty-tag-dialog.page.scss */ 4903);
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @angular/core */ 7716);
+/* harmony import */ var _ionic_angular__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @ionic/angular */ 476);
+
+
+
+
+
+let EmptyTagDialogPage = class EmptyTagDialogPage {
+    constructor(dialog) {
+        this.dialog = dialog;
+    }
+    ngOnInit() {
+    }
+    close() {
+        this.dialog.dismiss();
+    }
+};
+EmptyTagDialogPage.ctorParameters = () => [
+    { type: _ionic_angular__WEBPACK_IMPORTED_MODULE_2__.ModalController }
+];
+EmptyTagDialogPage = (0,tslib__WEBPACK_IMPORTED_MODULE_3__.__decorate)([
+    (0,_angular_core__WEBPACK_IMPORTED_MODULE_4__.Component)({
+        selector: 'app-empty-tag-dialog',
+        template: _raw_loader_empty_tag_dialog_page_html__WEBPACK_IMPORTED_MODULE_0__.default,
+        styles: [_empty_tag_dialog_page_scss__WEBPACK_IMPORTED_MODULE_1__.default]
+    })
+], EmptyTagDialogPage);
+
+const CssClass = 'dialog-empty-tag';
 
 
 /***/ }),
@@ -602,6 +652,21 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
+/***/ 4903:
+/*!*************************************************************!*\
+  !*** ./src/app/empty-tag-dialog/empty-tag-dialog.page.scss ***!
+  \*************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (".image-cover {\n  position: fixed;\n  top: 0px;\n  bottom: 0px;\n  left: 0px;\n  right: 0px;\n  width: 80%;\n  height: 80%;\n  margin: auto;\n  object-fit: scale-down;\n}\n\n.animation-pop {\n  position: fixed;\n  top: 0px;\n  left: 0px;\n  width: 100%;\n  height: 100%;\n}\n\n.shadow {\n  position: absolute;\n  background: #000;\n  opacity: 0.4;\n  width: 100%;\n  height: 100%;\n  top: 0px;\n  left: 0px;\n}\n\n.section-content {\n  position: absolute;\n  bottom: 0px;\n}\n\n.section-content p {\n  font-size: 1.25em;\n  padding: 0px 20px;\n}\n\n.section-content ion-button {\n  margin-top: 20px;\n}\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbImVtcHR5LXRhZy1kaWFsb2cucGFnZS5zY3NzIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiJBQUFBO0VBQ0MsZUFBQTtFQUNBLFFBQUE7RUFDQSxXQUFBO0VBQ0EsU0FBQTtFQUNBLFVBQUE7RUFDQSxVQUFBO0VBQ0EsV0FBQTtFQUNBLFlBQUE7RUFDRyxzQkFBQTtBQUNKOztBQUVBO0VBQ0MsZUFBQTtFQUNBLFFBQUE7RUFDQSxTQUFBO0VBQ0EsV0FBQTtFQUNBLFlBQUE7QUFDRDs7QUFFQTtFQUNDLGtCQUFBO0VBQ0EsZ0JBQUE7RUFDQSxZQUFBO0VBQ0EsV0FBQTtFQUNBLFlBQUE7RUFDQSxRQUFBO0VBQ0EsU0FBQTtBQUNEOztBQUVBO0VBQ0Msa0JBQUE7RUFDQSxXQUFBO0FBQ0Q7O0FBQ0M7RUFDQyxpQkFBQTtFQUNBLGlCQUFBO0FBQ0Y7O0FBRUM7RUFDQyxnQkFBQTtBQUFGIiwiZmlsZSI6ImVtcHR5LXRhZy1kaWFsb2cucGFnZS5zY3NzIiwic291cmNlc0NvbnRlbnQiOlsiLmltYWdlLWNvdmVyIHtcclxuXHRwb3NpdGlvbjogZml4ZWQ7XHJcblx0dG9wOiAwcHg7XHJcblx0Ym90dG9tOiAwcHg7XHJcblx0bGVmdDogMHB4O1xyXG5cdHJpZ2h0OiAwcHg7XHJcblx0d2lkdGg6IDgwJTtcclxuXHRoZWlnaHQ6IDgwJTtcclxuXHRtYXJnaW46IGF1dG87XHJcbiAgICBvYmplY3QtZml0OiBzY2FsZS1kb3duO1xyXG59XHJcblxyXG4uYW5pbWF0aW9uLXBvcCB7XHJcblx0cG9zaXRpb246IGZpeGVkO1xyXG5cdHRvcDogMHB4O1xyXG5cdGxlZnQ6IDBweDtcclxuXHR3aWR0aDogMTAwJTtcclxuXHRoZWlnaHQ6IDEwMCU7XHJcbn1cclxuXHJcbi5zaGFkb3cge1xyXG5cdHBvc2l0aW9uOiBhYnNvbHV0ZTtcclxuXHRiYWNrZ3JvdW5kOiAjMDAwO1xyXG5cdG9wYWNpdHk6IDAuNDtcclxuXHR3aWR0aDogMTAwJTtcclxuXHRoZWlnaHQ6IDEwMCU7XHJcblx0dG9wOiAwcHg7XHJcblx0bGVmdDogMHB4O1xyXG59XHJcblxyXG4uc2VjdGlvbi1jb250ZW50IHtcclxuXHRwb3NpdGlvbjogYWJzb2x1dGU7XHJcblx0Ym90dG9tOiAwcHg7XHJcblxyXG5cdHAge1xyXG5cdFx0Zm9udC1zaXplOiAxLjI1ZW07XHJcblx0XHRwYWRkaW5nOiAwcHggMjBweDtcclxuXHR9XHJcblxyXG5cdGlvbi1idXR0b24ge1xyXG5cdFx0bWFyZ2luLXRvcDogMjBweDtcclxuXHR9XHJcbn0iXX0= */");
+
+/***/ }),
+
 /***/ 4638:
 /*!*****************************************************!*\
   !*** ./src/app/media-dialog/media-dialog.page.scss ***!
@@ -629,6 +694,21 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ("<ion-content [fullscreen]=\"true\">\n    <div class=\"section-intro\">\n          <video class=\"video-intro landscape\" poster=\"/assets/img/poster-landscape.png\" autoplay playsinline muted loop>\n            <source src=\"/assets/video/intro-landscape.webm\" type=\"video/webm\" />\n            <source src=\"/assets/video/intro-landscape.mp4\" type=\"video/mp4\" />\n          </video>\n\n          <video class=\"video-intro portrait\" poster=\"/assets/img/poster-portrait.png\" autoplay playsinline muted loop>\n            <source src=\"/assets/video/intro-portrait.webm\" type=\"video/webm\" />\n            <source src=\"/assets/video/intro-portrait.mp4\" type=\"video/mp4\" />\n          </video>\n    </div>\n\n    <ion-card class=\"prompt-create-tag ion-no-margin\">\n        <ion-card-header>\n            <ion-card-title>{{ 'Dialog_Create.Title' | translate }}</ion-card-title>\n        </ion-card-header>\n\n        <ion-card-content>{{ 'Dialog_Create.Message' | translate }}</ion-card-content>\n\n        <ion-item lines=\"none\" class=\"ion-no-margin ion-padding-top ion-padding-bottom\">\n            <ion-button [href]=\"downloadHref\" [target]=\"target\" class=\"ion-no-margin\" expand=\"block\" size=\"large\" color=\"primary\" slot=\"start\">{{ 'Common.Button_Casual_Confirm' | translate }}</ion-button>\n            <ion-button (click)=\"close()\" class=\"ion-no-margin\" expand=\"block\" size=\"large\" fill=\"clear\" slot=\"end\">{{ 'Common.Button_Casual_Deny' | translate }}</ion-button>\n        </ion-item>\n\n    </ion-card>\n\n</ion-content>\n\n<ion-footer>\n    <ion-item lines=\"none\" class=\"tag-line ion-no-margin ion-no-padding\">\n        <ion-label class=\"ion-margin-top\" slot=\"end\">{{ 'Dialog_Create.Tag_Line' | translate }}</ion-label>\n    </ion-item>\n</ion-footer>");
+
+/***/ }),
+
+/***/ 6453:
+/*!***************************************************************************************************!*\
+  !*** ./node_modules/raw-loader/dist/cjs.js!./src/app/empty-tag-dialog/empty-tag-dialog.page.html ***!
+  \***************************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ("<ion-header>\n    <ion-toolbar>\n        <ion-title>{{ 'Dialog_Empty_Tag.Title' | translate }}</ion-title>\n    </ion-toolbar>\n</ion-header>\n\n<ion-content [fullscreen]=\"true\">\n    <img class='image-cover landscape' src='/assets/img/cover.png' />\n    <lottie-player class=\"animation-pop\" src=\"/assets/json/40514-pop.json\" background=\"transparent\"  speed=\"0.45\"  loop  autoplay></lottie-player>\n    <div class=\"shadow\"></div>\n\n    <div class=\"section-content\">\n        <ion-text color=\"white\"><p>{{ 'Dialog_Empty_Tag.Description' | translate }}</p></ion-text>\n        <ion-button (click)=\"close()\" color=\"dark\" expand=\"full\">{{ 'Common.Button_Close' | translate }}</ion-button>\n    </div>\n</ion-content>\n\n<ion-footer>\n</ion-footer>\n");
 
 /***/ }),
 

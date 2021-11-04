@@ -458,7 +458,7 @@ let ViewPage = class ViewPage {
     create() {
         return (0,tslib__WEBPACK_IMPORTED_MODULE_9__.__awaiter)(this, void 0, void 0, function* () {
             let dialog = yield this.modal.create({
-                cssClass: 'dialog-create-tag',
+                cssClass: _create_dialog_create_dialog_page__WEBPACK_IMPORTED_MODULE_7__.CssClass,
                 component: _create_dialog_create_dialog_page__WEBPACK_IMPORTED_MODULE_7__.CreateDialogPage,
             });
             yield dialog.present();

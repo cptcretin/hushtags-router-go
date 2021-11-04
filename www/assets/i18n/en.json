@@ -58,6 +58,11 @@
 		"Tag_Line": "HushTags - Leave Your Mark™"
 	},
 
+	"Dialog_Empty_Tag": {
+		"Title": "Nothing To See Here",
+		"Description": "That's odd.. It looks like there are no messages on this HushTag. Perhaps, try another."
+	},
+
 	"App_Menu": {
 		"Home": "Home",
 		"Help": "Help",

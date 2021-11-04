@@ -107,21 +107,27 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "DiscoverPage": () => (/* binding */ DiscoverPage)
 /* harmony export */ });
-/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! tslib */ 4762);
+/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! tslib */ 4762);
 /* harmony import */ var _raw_loader_discover_page_html__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! !raw-loader!./discover.page.html */ 2310);
 /* harmony import */ var _discover_page_scss__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./discover.page.scss */ 9579);
-/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! @angular/core */ 7716);
-/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! @angular/router */ 9895);
-/* harmony import */ var rxjs__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! rxjs */ 9412);
-/* harmony import */ var rxjs__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! rxjs */ 9193);
-/* harmony import */ var rxjs_operators__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! rxjs/operators */ 4612);
-/* harmony import */ var rxjs_operators__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! rxjs/operators */ 5304);
-/* harmony import */ var rxjs_operators__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! rxjs/operators */ 8049);
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_17__ = __webpack_require__(/*! @angular/core */ 7716);
+/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! @angular/router */ 9895);
+/* harmony import */ var _ionic_angular__WEBPACK_IMPORTED_MODULE_16__ = __webpack_require__(/*! @ionic/angular */ 476);
+/* harmony import */ var rxjs__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! rxjs */ 9412);
+/* harmony import */ var rxjs__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! rxjs */ 9193);
+/* harmony import */ var rxjs_operators__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! rxjs/operators */ 4612);
+/* harmony import */ var rxjs_operators__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! rxjs/operators */ 5304);
+/* harmony import */ var rxjs_operators__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! rxjs/operators */ 8049);
 /* harmony import */ var _include_api_client_api_client_module__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../include/api-client/api-client.module */ 1210);
 /* harmony import */ var _include_app_log_app_log_service__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../include/app-log/app-log.service */ 8971);
 /* harmony import */ var _include_app_settings_app_settings_module__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../include/app-settings/app-settings.module */ 6279);
 /* harmony import */ var _include_location_location_service__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../include/location/location.service */ 7927);
 /* harmony import */ var _include_i18n_i18n_module__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../include/i18n/i18n.module */ 1477);
+/* harmony import */ var _create_dialog_create_dialog_page__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../create-dialog/create-dialog.page */ 3237);
+/* harmony import */ var _empty_tag_dialog_empty_tag_dialog_page__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ../empty-tag-dialog/empty-tag-dialog.page */ 4911);
+
+
+
 
 
 
@@ -135,61 +141,87 @@ __webpack_require__.r(__webpack_exports__);
 
 
 let DiscoverPage = class DiscoverPage {
-    constructor(route, api, log, gps, translate) {
+    constructor(route, api, log, gps, dialog, nav, translate) {
         this.route = route;
         this.api = api;
         this.log = log;
         this.gps = gps;
+        this.dialog = dialog;
+        this.nav = nav;
         this.translate = translate;
         this.coverPhoto = _include_app_settings_app_settings_module__WEBPACK_IMPORTED_MODULE_4__.DefaultCoverPhoto;
     }
     ngOnInit() {
-        return (0,tslib__WEBPACK_IMPORTED_MODULE_7__.__awaiter)(this, void 0, void 0, function* () {
-            let tag = this.route.snapshot.paramMap.get('tag');
-            if (tag && tag.length > 0) {
-                yield this.readTag(tag);
+        return (0,tslib__WEBPACK_IMPORTED_MODULE_9__.__awaiter)(this, void 0, void 0, function* () {
+            this.tagHandle = this.route.snapshot.paramMap.get('tag');
+        });
+    }
+    ionViewWillEnter() {
+        return (0,tslib__WEBPACK_IMPORTED_MODULE_9__.__awaiter)(this, void 0, void 0, function* () {
+            if (this.tagHandle && this.tagHandle.length > 0) {
+                yield this.readTag();
+            }
+            else {
+                this.nav.navigate(['/']);
             }
         });
     }
-    readTag(tagHandle) {
-        return (0,tslib__WEBPACK_IMPORTED_MODULE_7__.__awaiter)(this, void 0, void 0, function* () {
+    readTag() {
+        return (0,tslib__WEBPACK_IMPORTED_MODULE_9__.__awaiter)(this, void 0, void 0, function* () {
             let pos = undefined;
             try {
                 pos = yield this.gps.getLocation();
             }
             catch (_a) { }
             let point = pos ? `${pos.lat},${pos.lon}` : '';
-            let req = new _include_api_client_api_client_module__WEBPACK_IMPORTED_MODULE_2__.ApiRequest(`/tag/${tagHandle}`)
+            let req = new _include_api_client_api_client_module__WEBPACK_IMPORTED_MODULE_2__.ApiRequest(`/tag/${this.tagHandle}`)
                 .addHeaders([{ name: 'x-hushtags-tapLocation', value: point }]);
             this.api.get(req)
-                .subscribe(res => {
+                .subscribe((res) => (0,tslib__WEBPACK_IMPORTED_MODULE_9__.__awaiter)(this, void 0, void 0, function* () {
                 this.title = res.title;
-                this.tagHandle = tagHandle;
                 this.arkHandle = res.contents.length == 1 ? res.contents[0].handle : '';
-                this.isAvailable = res.status == _include_api_client_api_client_module__WEBPACK_IMPORTED_MODULE_2__.TagStatus.Unassigned;
-                (0,rxjs__WEBPACK_IMPORTED_MODULE_8__.from)(res.contents)
-                    .pipe((0,rxjs_operators__WEBPACK_IMPORTED_MODULE_9__.concatMap)(ark => this.api.get(new _include_api_client_api_client_module__WEBPACK_IMPORTED_MODULE_2__.ApiRequest(`/ark/${tagHandle}/${ark.handle}`)).pipe((0,rxjs_operators__WEBPACK_IMPORTED_MODULE_10__.catchError)(() => rxjs__WEBPACK_IMPORTED_MODULE_11__.EMPTY)), ark => ark), (0,rxjs_operators__WEBPACK_IMPORTED_MODULE_12__.first)())
+                this.hasContent = res.contents.length > 0;
+                if (res.status === _include_api_client_api_client_module__WEBPACK_IMPORTED_MODULE_2__.TagStatus.Unassigned) {
+                    let msg = yield this.dialog.create({
+                        component: _create_dialog_create_dialog_page__WEBPACK_IMPORTED_MODULE_7__.CreateDialogPage,
+                        cssClass: _create_dialog_create_dialog_page__WEBPACK_IMPORTED_MODULE_7__.CssClass,
+                    });
+                    msg.onDidDismiss().then(() => this.nav.navigate(['/']));
+                    yield msg.present();
+                }
+                else if (!this.hasContent) {
+                    let msg = yield this.dialog.create({
+                        component: _empty_tag_dialog_empty_tag_dialog_page__WEBPACK_IMPORTED_MODULE_8__.EmptyTagDialogPage,
+                        cssClass: _empty_tag_dialog_empty_tag_dialog_page__WEBPACK_IMPORTED_MODULE_8__.CssClass,
+                    });
+                    msg.onDidDismiss().then(() => this.nav.navigate(['/']));
+                    yield msg.present();
+                }
+                (0,rxjs__WEBPACK_IMPORTED_MODULE_10__.from)(res.contents)
+                    .pipe((0,rxjs_operators__WEBPACK_IMPORTED_MODULE_11__.concatMap)(ark => this.api.get(new _include_api_client_api_client_module__WEBPACK_IMPORTED_MODULE_2__.ApiRequest(`/ark/${this.tagHandle}/${ark.handle}`)).pipe((0,rxjs_operators__WEBPACK_IMPORTED_MODULE_12__.catchError)(() => rxjs__WEBPACK_IMPORTED_MODULE_13__.EMPTY)), ark => ark), (0,rxjs_operators__WEBPACK_IMPORTED_MODULE_14__.first)())
                     .subscribe(ark => {
                     let img = new Image();
-                    let coverPhoto = this.api.url(`/ark/${tagHandle}/${ark.handle}/_cover`);
+                    let coverPhoto = this.api.url(`/ark/${this.tagHandle}/${ark.handle}/_cover`);
                     img.onload = () => this.coverPhoto = coverPhoto;
                     img.src = coverPhoto;
                 }, err => {
                     this.log.ex("got error", err);
                 });
-            });
+            }));
         });
     }
 };
 DiscoverPage.ctorParameters = () => [
-    { type: _angular_router__WEBPACK_IMPORTED_MODULE_13__.ActivatedRoute },
+    { type: _angular_router__WEBPACK_IMPORTED_MODULE_15__.ActivatedRoute },
     { type: _include_api_client_api_client_module__WEBPACK_IMPORTED_MODULE_2__.ApiClientModule },
     { type: _include_app_log_app_log_service__WEBPACK_IMPORTED_MODULE_3__.AppLogService },
     { type: _include_location_location_service__WEBPACK_IMPORTED_MODULE_5__.LocationService },
+    { type: _ionic_angular__WEBPACK_IMPORTED_MODULE_16__.ModalController },
+    { type: _angular_router__WEBPACK_IMPORTED_MODULE_15__.Router },
     { type: _include_i18n_i18n_module__WEBPACK_IMPORTED_MODULE_6__.Translations }
 ];
-DiscoverPage = (0,tslib__WEBPACK_IMPORTED_MODULE_7__.__decorate)([
-    (0,_angular_core__WEBPACK_IMPORTED_MODULE_14__.Component)({
+DiscoverPage = (0,tslib__WEBPACK_IMPORTED_MODULE_9__.__decorate)([
+    (0,_angular_core__WEBPACK_IMPORTED_MODULE_17__.Component)({
         selector: 'app-discover',
         template: _raw_loader_discover_page_html__WEBPACK_IMPORTED_MODULE_0__.default,
         styles: [_discover_page_scss__WEBPACK_IMPORTED_MODULE_1__.default]
@@ -226,7 +258,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ("<ion-header>\n    <app-header></app-header>\n</ion-header>\n\n<ion-content [fullscreen]=\"true\">\n    <div class=\"section-cover\">\n        <img [src]=\"coverPhoto\" class=\"image-cover\" />\n        <div class=\"shadow\"></div>\n    </div>\n    \n    <ion-card class=\"prompt-show-content\">\n        <ion-card-header>\n            <ion-card-title>{{ title }}</ion-card-title>\n        </ion-card-header>\n        \n        <ion-card-content>{{ 'Page_Discover.Tag_Found' | translate }}</ion-card-content>\n\n        <ion-item lines=\"none\">\n            <ion-button [href]=\"'/view/'+tagHandle+'/'+arkHandle\" class=\"ion-margin\" expand=\"block\" size=\"large\" color=\"primary\" slot=\"start\">{{ 'Common.Button_Casual_Confirm' | translate }}</ion-button>\n            <ion-button href=\"/\" class=\"ion-margin\" expand=\"block\" size=\"large\" fill=\"clear\" slot=\"end\">{{ 'Common.Button_Casual_Deny' | translate }}</ion-button>\n        </ion-item>\n\n    <ion-item lines=\"none\" class=\"learn-more\">\n            <ion-button href=\"/about\" fill=\"clear\" color=\"primary\" slot=\"end\">{{ 'Page_Discover.Learn_More' | translate }}</ion-button>\n        </ion-item>\n    </ion-card>\n</ion-content>\n\n<ion-footer>\n    <app-footer></app-footer>\n</ion-footer>\n");
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ("<ion-header>\n    <app-header></app-header>\n</ion-header>\n\n<ion-content [fullscreen]=\"true\">\n    <div class=\"section-cover\">\n        <img [src]=\"coverPhoto\" class=\"image-cover\" />\n        <div class=\"shadow\"></div>\n    </div>\n    \n    <ion-card *ngIf=\"hasContent\" class=\"prompt-show-content\">\n        <ion-card-header>\n            <ion-card-title>{{ title }}</ion-card-title>\n        </ion-card-header>\n        \n        <ion-card-content>{{ 'Page_Discover.Tag_Found' | translate }}</ion-card-content>\n\n        <ion-item lines=\"none\">\n            <ion-button [href]=\"'/view/'+tagHandle+'/'+arkHandle\" class=\"ion-margin\" expand=\"block\" size=\"large\" color=\"primary\" slot=\"start\">{{ 'Common.Button_Casual_Confirm' | translate }}</ion-button>\n            <ion-button href=\"/\" class=\"ion-margin\" expand=\"block\" size=\"large\" fill=\"clear\" slot=\"end\">{{ 'Common.Button_Casual_Deny' | translate }}</ion-button>\n        </ion-item>\n\n        <ion-item lines=\"none\" class=\"learn-more\">\n            <ion-button href=\"/about\" fill=\"clear\" color=\"primary\" slot=\"end\">{{ 'Page_Discover.Learn_More' | translate }}</ion-button>\n        </ion-item>\n    </ion-card>\n</ion-content>\n\n<ion-footer>\n    <app-footer></app-footer>\n</ion-footer>\n");
 
 /***/ })
 

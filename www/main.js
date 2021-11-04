@@ -55,7 +55,7 @@ const routes = [
     },
     {
         path: 'discover',
-        loadChildren: () => Promise.all(/*! import() */[__webpack_require__.e("default-src_app_components_components_module_ts"), __webpack_require__.e("default-src_app_include_api-client_api-client_module_ts-src_app_include_location_location_ser-e08648"), __webpack_require__.e("src_app_discover_discover_module_ts")]).then(__webpack_require__.bind(__webpack_require__, /*! ./discover/discover.module */ 4636)).then(m => m.DiscoverPageModule)
+        loadChildren: () => Promise.all(/*! import() */[__webpack_require__.e("default-src_app_components_components_module_ts"), __webpack_require__.e("default-src_app_include_api-client_api-client_module_ts-src_app_include_location_location_ser-e08648"), __webpack_require__.e("common"), __webpack_require__.e("src_app_discover_discover_module_ts")]).then(__webpack_require__.bind(__webpack_require__, /*! ./discover/discover.module */ 4636)).then(m => m.DiscoverPageModule)
     },
     {
         path: 'menu-modal',
@@ -80,6 +80,10 @@ const routes = [
     {
         path: 'help',
         loadChildren: () => Promise.all(/*! import() */[__webpack_require__.e("default-src_app_components_components_module_ts"), __webpack_require__.e("default-src_app_include_api-client_api-client_module_ts-src_app_include_location_location_ser-e08648"), __webpack_require__.e("src_app_help_help_module_ts")]).then(__webpack_require__.bind(__webpack_require__, /*! ./help/help.module */ 6700)).then(m => m.HelpPageModule)
+    },
+    {
+        path: 'empty-tag-dialog',
+        loadChildren: () => Promise.all(/*! import() */[__webpack_require__.e("common"), __webpack_require__.e("src_app_empty-tag-dialog_empty-tag-dialog_module_ts")]).then(__webpack_require__.bind(__webpack_require__, /*! ./empty-tag-dialog/empty-tag-dialog.module */ 9478)).then(m => m.EmptyTagDialogPageModule)
     },
 ];
 let AppRoutingModule = class AppRoutingModule {
