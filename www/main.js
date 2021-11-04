@@ -55,7 +55,7 @@ const routes = [
     },
     {
         path: 'discover',
-        loadChildren: () => Promise.all(/*! import() */[__webpack_require__.e("default-src_app_components_components_module_ts"), __webpack_require__.e("common"), __webpack_require__.e("src_app_discover_discover_module_ts")]).then(__webpack_require__.bind(__webpack_require__, /*! ./discover/discover.module */ 4636)).then(m => m.DiscoverPageModule)
+        loadChildren: () => Promise.all(/*! import() */[__webpack_require__.e("default-src_app_components_components_module_ts"), __webpack_require__.e("default-src_app_include_api-client_api-client_module_ts-src_app_include_location_location_ser-e08648"), __webpack_require__.e("src_app_discover_discover_module_ts")]).then(__webpack_require__.bind(__webpack_require__, /*! ./discover/discover.module */ 4636)).then(m => m.DiscoverPageModule)
     },
     {
         path: 'menu-modal',
@@ -76,6 +76,10 @@ const routes = [
     {
         path: 'about',
         loadChildren: () => Promise.all(/*! import() */[__webpack_require__.e("default-src_app_components_components_module_ts"), __webpack_require__.e("src_app_about_about_module_ts")]).then(__webpack_require__.bind(__webpack_require__, /*! ./about/about.module */ 6985)).then(m => m.AboutPageModule)
+    },
+    {
+        path: 'help',
+        loadChildren: () => Promise.all(/*! import() */[__webpack_require__.e("default-src_app_components_components_module_ts"), __webpack_require__.e("default-src_app_include_api-client_api-client_module_ts-src_app_include_location_location_ser-e08648"), __webpack_require__.e("src_app_help_help_module_ts")]).then(__webpack_require__.bind(__webpack_require__, /*! ./help/help.module */ 6700)).then(m => m.HelpPageModule)
     },
 ];
 let AppRoutingModule = class AppRoutingModule {

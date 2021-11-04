@@ -1,5 +1,252 @@
 (self["webpackChunkhushtags_app"] = self["webpackChunkhushtags_app"] || []).push([["src_app_view_view_module_ts"],{
 
+/***/ 1210:
+/*!*********************************************************!*\
+  !*** ./src/app/include/api-client/api-client.module.ts ***!
+  \*********************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "ApiClientModule": () => (/* binding */ ApiClientModule),
+/* harmony export */   "ApiRequest": () => (/* binding */ ApiRequest),
+/* harmony export */   "TagStatus": () => (/* binding */ TagStatus)
+/* harmony export */ });
+/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! tslib */ 4762);
+/* harmony import */ var _angular_common__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @angular/common */ 8583);
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @angular/core */ 7716);
+/* harmony import */ var _angular_common_http__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/common/http */ 1841);
+/* harmony import */ var rxjs__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! rxjs */ 9165);
+/* harmony import */ var _app_settings_app_settings_module__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../app-settings/app-settings.module */ 6279);
+
+
+
+
+
+
+let ApiClientModule = class ApiClientModule {
+    constructor(http) {
+        this.http = http;
+        this._host = _app_settings_app_settings_module__WEBPACK_IMPORTED_MODULE_0__.ApiSettings.host;
+        this._apiVer = _app_settings_app_settings_module__WEBPACK_IMPORTED_MODULE_0__.ApiSettings.apiVer;
+        this._clientKey = _app_settings_app_settings_module__WEBPACK_IMPORTED_MODULE_0__.ApiSettings.clientKey;
+        this._clientSecret = _app_settings_app_settings_module__WEBPACK_IMPORTED_MODULE_0__.ApiSettings.clientSecret;
+    }
+    authenticate() {
+        return rxjs__WEBPACK_IMPORTED_MODULE_1__.Observable.create(o => {
+            this.post(new ApiRequest("/auth"), { key: this._clientKey, secret: this._clientSecret })
+                .subscribe(data => o.next([{ name: "Authorization", value: data.token }]), err => o.error(err), () => o.complete());
+        });
+    }
+    get(req) {
+        return rxjs__WEBPACK_IMPORTED_MODULE_1__.Observable.create(o => {
+            let uri = '';
+            let headers = undefined;
+            if (typeof req === 'string') {
+                uri = this._uri(String(req));
+            }
+            else {
+                let r = req;
+                uri = this._uri(r.path);
+                headers = this._headers(r.headers);
+            }
+            this.http
+                .get(uri, { headers: headers })
+                .subscribe((resp) => {
+                if (!resp || !resp.response) {
+                    o.error(new Error("Null response"));
+                }
+                else if (resp.response.status >= 300) {
+                    o.error(resp.response);
+                }
+                else {
+                    o.next(resp.data);
+                }
+            }, err => {
+                if (err.error && err.error.response) {
+                    o.error(err.error.response);
+                }
+                else {
+                    o.error(err);
+                }
+            }, () => o.complete());
+        });
+    }
+    post(req, body) {
+        return rxjs__WEBPACK_IMPORTED_MODULE_1__.Observable.create(o => {
+            let uri = '';
+            let headers = undefined;
+            if (typeof req === 'string') {
+                uri = this._uri(String(req));
+            }
+            else {
+                let r = req;
+                uri = this._uri(r.path);
+                headers = this._headers(r.headers);
+            }
+            this.http
+                .post(uri, body, { headers: headers })
+                .subscribe((resp) => {
+                if (!resp || !resp.response) {
+                    o.error(new Error("Null response"));
+                }
+                else if (resp.response.status >= 300) {
+                    o.error(resp.response.statusMessage);
+                }
+                else {
+                    o.next(resp.data);
+                }
+            }, err => {
+                if (err.error && err.error.response) {
+                    o.error(err.error.response);
+                }
+                else {
+                    o.error(err);
+                }
+            }, () => o.complete());
+        });
+    }
+    postFile(req, body) {
+        return rxjs__WEBPACK_IMPORTED_MODULE_1__.Observable.create(o => {
+            let form = new FormData();
+            for (let prop in body) {
+                form.append(prop, body[prop]);
+            }
+            this.http.post(this._uri(req.path), form, { headers: this._headers(req.headers) })
+                .subscribe((resp) => {
+                if (!resp || !resp.response) {
+                    o.error(new Error("Null response"));
+                }
+                else if (resp.response.status >= 300) {
+                    o.error(resp.response.statusMessage);
+                }
+                else {
+                    o.next(resp.data);
+                }
+            }, err => {
+                if (err.error && err.error.response) {
+                    o.error(err.error.response);
+                }
+                else {
+                    o.error(err);
+                }
+            }, () => o.complete());
+        });
+    }
+    put(req, body) {
+        return rxjs__WEBPACK_IMPORTED_MODULE_1__.Observable.create(o => {
+            let uri = '';
+            let headers = undefined;
+            if (typeof req === 'string') {
+                uri = this._uri(String(req));
+            }
+            else {
+                let r = req;
+                uri = this._uri(r.path);
+                headers = this._headers(r.headers);
+            }
+            this.http
+                .put(uri, body, { headers: headers })
+                .subscribe((resp) => {
+                if (!resp || !resp.response) {
+                    o.error(new Error("Null response"));
+                }
+                else if (resp.response.status >= 300) {
+                    o.error(resp.response.statusMessage);
+                }
+                else {
+                    o.next(resp.data);
+                }
+            }, err => {
+                if (err.error && err.error.response) {
+                    o.error(err.error.response);
+                }
+                else {
+                    o.error(err);
+                }
+            }, () => o.complete());
+        });
+    }
+    delete(req) {
+        return rxjs__WEBPACK_IMPORTED_MODULE_1__.Observable.create(o => {
+            this.http
+                .delete(this._uri(req.path), { headers: this._headers(req.headers) })
+                .subscribe((resp) => {
+                if (!resp || !resp.response) {
+                    o.error(new Error("Null response"));
+                }
+                else if (resp.response.status >= 300) {
+                    o.error(resp.response.statusMessage);
+                }
+                else {
+                    o.next(resp.data);
+                }
+            }, err => {
+                if (err.error && err.error.response) {
+                    o.error(err.error.response);
+                }
+                else {
+                    o.error(err);
+                }
+            }, () => o.complete());
+        });
+    }
+    fileUrl(handle) {
+        return this._uri(`/file/${handle}`);
+    }
+    url(path) {
+        return this._uri(path);
+    }
+    _uri(path) {
+        return `${this._host}/bff/${this._apiVer}${path}`;
+    }
+    _headers(headers) {
+        if (typeof headers === "undefined") {
+            return null;
+        }
+        let httpHeaders = new _angular_common_http__WEBPACK_IMPORTED_MODULE_2__.HttpHeaders();
+        headers.forEach(header => {
+            httpHeaders = httpHeaders.set(header.name, header.value);
+        });
+        return httpHeaders;
+    }
+};
+ApiClientModule.ctorParameters = () => [
+    { type: _angular_common_http__WEBPACK_IMPORTED_MODULE_2__.HttpClient }
+];
+ApiClientModule = (0,tslib__WEBPACK_IMPORTED_MODULE_3__.__decorate)([
+    (0,_angular_core__WEBPACK_IMPORTED_MODULE_4__.NgModule)({
+        imports: [
+            _angular_common__WEBPACK_IMPORTED_MODULE_5__.CommonModule,
+        ],
+    })
+], ApiClientModule);
+
+class ApiRequest {
+    constructor(path) {
+        this.path = path;
+        this.headers = [];
+    }
+    addHeaders(headers) {
+        if (headers) {
+            headers.forEach(x => this.headers.push(x));
+        }
+        return this;
+    }
+}
+const TagStatus = {
+    Active: "active",
+    Review: "review",
+    Suspended: "suspended",
+    Archived: "archived",
+    Unassigned: "unassigned",
+    Hold: "hold",
+};
+
+
+/***/ }),
+
 /***/ 1597:
 /*!*********************************************!*\
   !*** ./src/app/view/view-routing.module.ts ***!
@@ -438,7 +685,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (".section-cover {\n  position: fixed;\n  width: 100vw;\n  height: 100vh;\n  left: 0;\n  z-index: -1;\n}\n.section-cover .image-cover {\n  width: 100vw;\n  height: 100vh;\n  object-fit: cover;\n}\n.section-cover .shadow {\n  position: absolute;\n  top: 0px;\n  left: 0px;\n  width: 100vw;\n  height: 100vh;\n  background: #000;\n  opacity: 0.7;\n}\n.section-content-list {\n  position: relative;\n  left: 0px;\n  right: 0px;\n  margin: 0px auto;\n  max-width: 900px;\n}\n.section-message {\n  position: fixed;\n  bottom: 120px;\n  left: 10px;\n  padding: 5px;\n  background: var(--ion-color-light);\n  border: 1px solid var(--ion-color-light);\n  border-radius: 5px;\n}\n.mask {\n  position: absolute;\n  width: 100%;\n  height: 100%;\n  top: 0px;\n  left: 0px;\n  background-color: black;\n  opacity: 0.4;\n  z-index: -1;\n}\n.coverPhoto {\n  position: fixed;\n  top: 0px;\n  left: 0px;\n  right: 0px;\n  margin: 0px auto;\n  max-width: 200%;\n}\n.description {\n  font-size: medium;\n  margin: 20px 0px;\n  padding: 8px;\n}\nion-grid ion-card .contentPreview {\n  position: relative;\n  min-height: 180px;\n  min-width: 180px;\n}\nion-grid ion-card .contentPreview .preview {\n  position: absolute;\n  height: 100%;\n  width: 100%;\n  object-fit: cover;\n}\nion-grid ion-card .contentPreview .overlay {\n  position: absolute;\n  top: 47px;\n  left: 50%;\n  margin-left: -45px;\n  width: 95px;\n  z-index: 3;\n}\nion-grid ion-card .contentPreview .mask {\n  z-index: 2;\n}\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInZpZXcucGFnZS5zY3NzIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiJBQUFBO0VBQ0ksZUFBQTtFQUNBLFlBQUE7RUFDQSxhQUFBO0VBQ0EsT0FBQTtFQUNBLFdBQUE7QUFDSjtBQUNJO0VBQ0ksWUFBQTtFQUNBLGFBQUE7RUFDQSxpQkFBQTtBQUNSO0FBRUk7RUFDSSxrQkFBQTtFQUNBLFFBQUE7RUFDQSxTQUFBO0VBQ0EsWUFBQTtFQUNBLGFBQUE7RUFDQSxnQkFBQTtFQUNBLFlBQUE7QUFBUjtBQUlBO0VBQ0Msa0JBQUE7RUFDQSxTQUFBO0VBQ0EsVUFBQTtFQUNBLGdCQUFBO0VBQ0EsZ0JBQUE7QUFERDtBQUtBO0VBQ0MsZUFBQTtFQUNBLGFBQUE7RUFDQSxVQUFBO0VBQ0EsWUFBQTtFQUNBLGtDQUFBO0VBQ0Esd0NBQUE7RUFDQSxrQkFBQTtBQUZEO0FBS0E7RUFDQyxrQkFBQTtFQUNBLFdBQUE7RUFDQSxZQUFBO0VBQ0EsUUFBQTtFQUNBLFNBQUE7RUFDQSx1QkFBQTtFQUNBLFlBQUE7RUFDQSxXQUFBO0FBRkQ7QUFLQTtFQUNDLGVBQUE7RUFDQSxRQUFBO0VBQ0EsU0FBQTtFQUNBLFVBQUE7RUFDQSxnQkFBQTtFQUNBLGVBQUE7QUFGRDtBQUtBO0VBQ0MsaUJBQUE7RUFDQSxnQkFBQTtFQUNBLFlBQUE7QUFGRDtBQU9FO0VBQ0Msa0JBQUE7RUFDQSxpQkFBQTtFQUNBLGdCQUFBO0FBSkg7QUFNRztFQUNDLGtCQUFBO0VBQ0EsWUFBQTtFQUNBLFdBQUE7RUFDQSxpQkFBQTtBQUpKO0FBT0c7RUFDQyxrQkFBQTtFQUNBLFNBQUE7RUFDQSxTQUFBO0VBQ0Esa0JBQUE7RUFDQSxXQUFBO0VBQ0EsVUFBQTtBQUxKO0FBUUc7RUFDQyxVQUFBO0FBTkoiLCJmaWxlIjoidmlldy5wYWdlLnNjc3MiLCJzb3VyY2VzQ29udGVudCI6WyIuc2VjdGlvbi1jb3ZlciB7XHJcbiAgICBwb3NpdGlvbjogZml4ZWQ7XHJcbiAgICB3aWR0aDogMTAwdnc7XHJcbiAgICBoZWlnaHQ6IDEwMHZoO1xyXG4gICAgbGVmdDogMDtcclxuICAgIHotaW5kZXg6IC0xO1xyXG5cclxuICAgIC5pbWFnZS1jb3ZlciB7XHJcbiAgICAgICAgd2lkdGg6IDEwMHZ3O1xyXG4gICAgICAgIGhlaWdodDogMTAwdmg7XHJcbiAgICAgICAgb2JqZWN0LWZpdDogY292ZXI7XHJcbiAgICB9XHJcblxyXG4gICAgLnNoYWRvdyB7XHJcbiAgICAgICAgcG9zaXRpb246IGFic29sdXRlO1xyXG4gICAgICAgIHRvcDogMHB4O1xyXG4gICAgICAgIGxlZnQ6IDBweDtcclxuICAgICAgICB3aWR0aDogMTAwdnc7XHJcbiAgICAgICAgaGVpZ2h0OiAxMDB2aDtcclxuICAgICAgICBiYWNrZ3JvdW5kOiAjMDAwO1xyXG4gICAgICAgIG9wYWNpdHk6IDAuNztcclxuICAgIH1cclxufVxyXG5cclxuLnNlY3Rpb24tY29udGVudC1saXN0IHtcclxuXHRwb3NpdGlvbjogcmVsYXRpdmU7XHJcblx0bGVmdDogMHB4O1xyXG5cdHJpZ2h0OiAwcHg7XHJcblx0bWFyZ2luOiAwcHggYXV0bztcclxuXHRtYXgtd2lkdGg6IDkwMHB4O1xyXG5cclxufVxyXG5cclxuLnNlY3Rpb24tbWVzc2FnZSB7XHJcblx0cG9zaXRpb246IGZpeGVkO1xyXG5cdGJvdHRvbTogMTIwcHg7XHJcblx0bGVmdDogMTBweDtcclxuXHRwYWRkaW5nOiA1cHg7XHJcblx0YmFja2dyb3VuZDogdmFyKC0taW9uLWNvbG9yLWxpZ2h0KTtcclxuXHRib3JkZXI6IDFweCBzb2xpZCB2YXIoLS1pb24tY29sb3ItbGlnaHQpO1xyXG5cdGJvcmRlci1yYWRpdXM6IDVweDtcclxufVxyXG5cclxuLm1hc2sge1xyXG5cdHBvc2l0aW9uOiBhYnNvbHV0ZTtcclxuXHR3aWR0aDogMTAwJTtcclxuXHRoZWlnaHQ6IDEwMCU7XHJcblx0dG9wOiAwcHg7XHJcblx0bGVmdDogMHB4O1xyXG5cdGJhY2tncm91bmQtY29sb3I6IGJsYWNrO1xyXG5cdG9wYWNpdHk6IDAuNDtcclxuXHR6LWluZGV4OiAtMTtcclxufVxyXG5cclxuLmNvdmVyUGhvdG8ge1xyXG5cdHBvc2l0aW9uOiBmaXhlZDtcclxuXHR0b3A6IDBweDtcclxuXHRsZWZ0OiAwcHg7XHJcblx0cmlnaHQ6IDBweDtcclxuXHRtYXJnaW46IDBweCBhdXRvO1xyXG5cdG1heC13aWR0aDogMjAwJTtcclxufVxyXG5cclxuLmRlc2NyaXB0aW9uIHtcclxuXHRmb250LXNpemU6IG1lZGl1bTtcclxuXHRtYXJnaW46IDIwcHggMHB4O1xyXG5cdHBhZGRpbmc6IDhweDtcclxufVxyXG5cclxuaW9uLWdyaWQge1xyXG5cdGlvbi1jYXJkIHtcclxuXHRcdC5jb250ZW50UHJldmlldyB7XHJcblx0XHRcdHBvc2l0aW9uOiByZWxhdGl2ZTtcclxuXHRcdFx0bWluLWhlaWdodDogMTgwcHg7XHJcblx0XHRcdG1pbi13aWR0aDogMTgwcHg7XHJcblxyXG5cdFx0XHQucHJldmlldyB7XHJcblx0XHRcdFx0cG9zaXRpb246IGFic29sdXRlO1xyXG5cdFx0XHRcdGhlaWdodDogMTAwJTtcclxuXHRcdFx0XHR3aWR0aDogMTAwJTtcclxuXHRcdFx0XHRvYmplY3QtZml0OiBjb3ZlcjtcclxuXHRcdFx0fVxyXG5cclxuXHRcdFx0Lm92ZXJsYXkge1xyXG5cdFx0XHRcdHBvc2l0aW9uOiBhYnNvbHV0ZTtcclxuXHRcdFx0XHR0b3A6IDQ3cHg7XHJcblx0XHRcdFx0bGVmdDogNTAlO1xyXG5cdFx0XHRcdG1hcmdpbi1sZWZ0OiAtNDVweDtcclxuXHRcdFx0XHR3aWR0aDogOTVweDtcclxuXHRcdFx0XHR6LWluZGV4OiAzO1xyXG5cdFx0XHR9XHJcblxyXG5cdFx0XHQubWFzayB7XHJcblx0XHRcdFx0ei1pbmRleDogMjtcclxuXHRcdFx0fVxyXG5cdFx0fVxyXG5cdH1cclxufSJdfQ== */");
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (".section-cover {\n  position: fixed;\n  width: 100vw;\n  height: 100vh;\n  left: 0;\n  z-index: -1;\n}\n.section-cover .image-cover {\n  width: 100vw;\n  height: 100vh;\n  object-fit: cover;\n}\n.section-cover .shadow {\n  position: absolute;\n  top: 0px;\n  left: 0px;\n  width: 100vw;\n  height: 100vh;\n  background: #000;\n  opacity: 0.7;\n}\nion-toolbar ion-title {\n  padding-inline: 0px;\n  text-align: left;\n}\n.section-content-list {\n  position: relative;\n  left: 0px;\n  right: 0px;\n  margin: 0px auto;\n  max-width: 900px;\n}\n.section-message {\n  position: fixed;\n  bottom: 120px;\n  left: 10px;\n  padding: 5px;\n  background: var(--ion-color-light);\n  border: 1px solid var(--ion-color-light);\n  border-radius: 5px;\n}\n.mask {\n  position: absolute;\n  width: 100%;\n  height: 100%;\n  top: 0px;\n  left: 0px;\n  background-color: black;\n  opacity: 0.4;\n  z-index: -1;\n}\n.coverPhoto {\n  position: fixed;\n  top: 0px;\n  left: 0px;\n  right: 0px;\n  margin: 0px auto;\n  max-width: 200%;\n}\n.description {\n  font-size: medium;\n  margin: 20px 0px;\n  padding: 8px;\n}\nion-grid ion-card .contentPreview {\n  position: relative;\n  min-height: 180px;\n  min-width: 180px;\n}\nion-grid ion-card .contentPreview .preview {\n  position: absolute;\n  height: 100%;\n  width: 100%;\n  object-fit: cover;\n}\nion-grid ion-card .contentPreview .overlay {\n  position: absolute;\n  top: 47px;\n  left: 50%;\n  margin-left: -45px;\n  width: 95px;\n  z-index: 3;\n}\nion-grid ion-card .contentPreview .mask {\n  z-index: 2;\n}\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInZpZXcucGFnZS5zY3NzIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiJBQUFBO0VBQ0ksZUFBQTtFQUNBLFlBQUE7RUFDQSxhQUFBO0VBQ0EsT0FBQTtFQUNBLFdBQUE7QUFDSjtBQUNJO0VBQ0ksWUFBQTtFQUNBLGFBQUE7RUFDQSxpQkFBQTtBQUNSO0FBRUk7RUFDSSxrQkFBQTtFQUNBLFFBQUE7RUFDQSxTQUFBO0VBQ0EsWUFBQTtFQUNBLGFBQUE7RUFDQSxnQkFBQTtFQUNBLFlBQUE7QUFBUjtBQUtDO0VBQ0MsbUJBQUE7RUFDQSxnQkFBQTtBQUZGO0FBTUE7RUFDQyxrQkFBQTtFQUNBLFNBQUE7RUFDQSxVQUFBO0VBQ0EsZ0JBQUE7RUFDQSxnQkFBQTtBQUhEO0FBT0E7RUFDQyxlQUFBO0VBQ0EsYUFBQTtFQUNBLFVBQUE7RUFDQSxZQUFBO0VBQ0Esa0NBQUE7RUFDQSx3Q0FBQTtFQUNBLGtCQUFBO0FBSkQ7QUFPQTtFQUNDLGtCQUFBO0VBQ0EsV0FBQTtFQUNBLFlBQUE7RUFDQSxRQUFBO0VBQ0EsU0FBQTtFQUNBLHVCQUFBO0VBQ0EsWUFBQTtFQUNBLFdBQUE7QUFKRDtBQU9BO0VBQ0MsZUFBQTtFQUNBLFFBQUE7RUFDQSxTQUFBO0VBQ0EsVUFBQTtFQUNBLGdCQUFBO0VBQ0EsZUFBQTtBQUpEO0FBT0E7RUFDQyxpQkFBQTtFQUNBLGdCQUFBO0VBQ0EsWUFBQTtBQUpEO0FBU0U7RUFDQyxrQkFBQTtFQUNBLGlCQUFBO0VBQ0EsZ0JBQUE7QUFOSDtBQVFHO0VBQ0Msa0JBQUE7RUFDQSxZQUFBO0VBQ0EsV0FBQTtFQUNBLGlCQUFBO0FBTko7QUFTRztFQUNDLGtCQUFBO0VBQ0EsU0FBQTtFQUNBLFNBQUE7RUFDQSxrQkFBQTtFQUNBLFdBQUE7RUFDQSxVQUFBO0FBUEo7QUFVRztFQUNDLFVBQUE7QUFSSiIsImZpbGUiOiJ2aWV3LnBhZ2Uuc2NzcyIsInNvdXJjZXNDb250ZW50IjpbIi5zZWN0aW9uLWNvdmVyIHtcclxuICAgIHBvc2l0aW9uOiBmaXhlZDtcclxuICAgIHdpZHRoOiAxMDB2dztcclxuICAgIGhlaWdodDogMTAwdmg7XHJcbiAgICBsZWZ0OiAwO1xyXG4gICAgei1pbmRleDogLTE7XHJcblxyXG4gICAgLmltYWdlLWNvdmVyIHtcclxuICAgICAgICB3aWR0aDogMTAwdnc7XHJcbiAgICAgICAgaGVpZ2h0OiAxMDB2aDtcclxuICAgICAgICBvYmplY3QtZml0OiBjb3ZlcjtcclxuICAgIH1cclxuXHJcbiAgICAuc2hhZG93IHtcclxuICAgICAgICBwb3NpdGlvbjogYWJzb2x1dGU7XHJcbiAgICAgICAgdG9wOiAwcHg7XHJcbiAgICAgICAgbGVmdDogMHB4O1xyXG4gICAgICAgIHdpZHRoOiAxMDB2dztcclxuICAgICAgICBoZWlnaHQ6IDEwMHZoO1xyXG4gICAgICAgIGJhY2tncm91bmQ6ICMwMDA7XHJcbiAgICAgICAgb3BhY2l0eTogMC43O1xyXG4gICAgfVxyXG59XHJcblxyXG5pb24tdG9vbGJhciB7XHJcblx0aW9uLXRpdGxlIHtcclxuXHRcdHBhZGRpbmctaW5saW5lOiAwcHg7XHJcblx0XHR0ZXh0LWFsaWduOiBsZWZ0O1xyXG5cdH1cclxufVxyXG5cclxuLnNlY3Rpb24tY29udGVudC1saXN0IHtcclxuXHRwb3NpdGlvbjogcmVsYXRpdmU7XHJcblx0bGVmdDogMHB4O1xyXG5cdHJpZ2h0OiAwcHg7XHJcblx0bWFyZ2luOiAwcHggYXV0bztcclxuXHRtYXgtd2lkdGg6IDkwMHB4O1xyXG5cclxufVxyXG5cclxuLnNlY3Rpb24tbWVzc2FnZSB7XHJcblx0cG9zaXRpb246IGZpeGVkO1xyXG5cdGJvdHRvbTogMTIwcHg7XHJcblx0bGVmdDogMTBweDtcclxuXHRwYWRkaW5nOiA1cHg7XHJcblx0YmFja2dyb3VuZDogdmFyKC0taW9uLWNvbG9yLWxpZ2h0KTtcclxuXHRib3JkZXI6IDFweCBzb2xpZCB2YXIoLS1pb24tY29sb3ItbGlnaHQpO1xyXG5cdGJvcmRlci1yYWRpdXM6IDVweDtcclxufVxyXG5cclxuLm1hc2sge1xyXG5cdHBvc2l0aW9uOiBhYnNvbHV0ZTtcclxuXHR3aWR0aDogMTAwJTtcclxuXHRoZWlnaHQ6IDEwMCU7XHJcblx0dG9wOiAwcHg7XHJcblx0bGVmdDogMHB4O1xyXG5cdGJhY2tncm91bmQtY29sb3I6IGJsYWNrO1xyXG5cdG9wYWNpdHk6IDAuNDtcclxuXHR6LWluZGV4OiAtMTtcclxufVxyXG5cclxuLmNvdmVyUGhvdG8ge1xyXG5cdHBvc2l0aW9uOiBmaXhlZDtcclxuXHR0b3A6IDBweDtcclxuXHRsZWZ0OiAwcHg7XHJcblx0cmlnaHQ6IDBweDtcclxuXHRtYXJnaW46IDBweCBhdXRvO1xyXG5cdG1heC13aWR0aDogMjAwJTtcclxufVxyXG5cclxuLmRlc2NyaXB0aW9uIHtcclxuXHRmb250LXNpemU6IG1lZGl1bTtcclxuXHRtYXJnaW46IDIwcHggMHB4O1xyXG5cdHBhZGRpbmc6IDhweDtcclxufVxyXG5cclxuaW9uLWdyaWQge1xyXG5cdGlvbi1jYXJkIHtcclxuXHRcdC5jb250ZW50UHJldmlldyB7XHJcblx0XHRcdHBvc2l0aW9uOiByZWxhdGl2ZTtcclxuXHRcdFx0bWluLWhlaWdodDogMTgwcHg7XHJcblx0XHRcdG1pbi13aWR0aDogMTgwcHg7XHJcblxyXG5cdFx0XHQucHJldmlldyB7XHJcblx0XHRcdFx0cG9zaXRpb246IGFic29sdXRlO1xyXG5cdFx0XHRcdGhlaWdodDogMTAwJTtcclxuXHRcdFx0XHR3aWR0aDogMTAwJTtcclxuXHRcdFx0XHRvYmplY3QtZml0OiBjb3ZlcjtcclxuXHRcdFx0fVxyXG5cclxuXHRcdFx0Lm92ZXJsYXkge1xyXG5cdFx0XHRcdHBvc2l0aW9uOiBhYnNvbHV0ZTtcclxuXHRcdFx0XHR0b3A6IDQ3cHg7XHJcblx0XHRcdFx0bGVmdDogNTAlO1xyXG5cdFx0XHRcdG1hcmdpbi1sZWZ0OiAtNDVweDtcclxuXHRcdFx0XHR3aWR0aDogOTVweDtcclxuXHRcdFx0XHR6LWluZGV4OiAzO1xyXG5cdFx0XHR9XHJcblxyXG5cdFx0XHQubWFzayB7XHJcblx0XHRcdFx0ei1pbmRleDogMjtcclxuXHRcdFx0fVxyXG5cdFx0fVxyXG5cdH1cclxufSJdfQ== */");
 
 /***/ }),
 

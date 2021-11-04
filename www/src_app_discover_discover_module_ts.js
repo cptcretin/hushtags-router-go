@@ -200,119 +200,6 @@ DiscoverPage = (0,tslib__WEBPACK_IMPORTED_MODULE_7__.__decorate)([
 
 /***/ }),
 
-/***/ 7927:
-/*!******************************************************!*\
-  !*** ./src/app/include/location/location.service.ts ***!
-  \******************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "LocationService": () => (/* binding */ LocationService)
-/* harmony export */ });
-/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! tslib */ 4762);
-/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @angular/core */ 7716);
-/* harmony import */ var _ionic_angular__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @ionic/angular */ 476);
-/* harmony import */ var _app_log_app_log_service__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../app-log/app-log.service */ 8971);
-/* harmony import */ var _app_settings_app_settings_service__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../app-settings/app-settings.service */ 9675);
-/* harmony import */ var _i18n_i18n_module__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../i18n/i18n.module */ 1477);
-
-
-
-
-
-
-let LocationService = class LocationService {
-    constructor(alert, log, settings, translations) {
-        this.alert = alert;
-        this.log = log;
-        this.settings = settings;
-        this.translations = translations;
-        this.translations.ready([
-            Translation.Alert_Permission_Title,
-            Translation.Alert_Permission_Message,
-            Translation.Button_Casual_Deny,
-        ]).then();
-    }
-    getLocation() {
-        return (0,tslib__WEBPACK_IMPORTED_MODULE_3__.__awaiter)(this, void 0, void 0, function* () {
-            return new Promise((res, rej) => (0,tslib__WEBPACK_IMPORTED_MODULE_3__.__awaiter)(this, void 0, void 0, function* () {
-                yield this.translations.ready([]);
-                let pos = this.settings.get(_app_settings_app_settings_service__WEBPACK_IMPORTED_MODULE_1__.SettingKey.location);
-                let prompt = this.settings.get(_app_settings_app_settings_service__WEBPACK_IMPORTED_MODULE_1__.SettingKey.locationPrompt) == undefined;
-                if (pos) {
-                    res(pos);
-                    return;
-                }
-                if (!window.navigator.geolocation || !prompt) {
-                    rej();
-                    return;
-                }
-                let msg = yield this.alert.create({
-                    header: this.translations.get(Translation.Alert_Permission_Title),
-                    message: this.translations.get(Translation.Alert_Permission_Message),
-                    cssClass: 'alert-location-permission',
-                    buttons: [
-                        { text: this.translations.get(Translation.Button_Casual_Deny), handler: () => {
-                                this.settings.set(_app_settings_app_settings_service__WEBPACK_IMPORTED_MODULE_1__.SettingKey.locationPrompt, { value: false });
-                                msg.dismiss();
-                                rej();
-                            }
-                        }
-                    ],
-                });
-                let alertTimeout = setTimeout(() => (0,tslib__WEBPACK_IMPORTED_MODULE_3__.__awaiter)(this, void 0, void 0, function* () {
-                    if (prompt) {
-                        yield msg.present();
-                    }
-                }), 1500);
-                window.navigator.geolocation.getCurrentPosition(pos => {
-                    this.log.trace("got geo-location", pos);
-                    clearTimeout(alertTimeout);
-                    msg.dismiss();
-                    let point = {
-                        lat: pos.coords.latitude,
-                        lon: pos.coords.longitude,
-                    };
-                    let exp = new Date();
-                    exp.setMinutes(exp.getMinutes() + 3);
-                    this.settings.set(_app_settings_app_settings_service__WEBPACK_IMPORTED_MODULE_1__.SettingKey.location, { value: point, expire: exp });
-                    res(point);
-                }, err => {
-                    this.log.warn("could not get position", err);
-                    clearTimeout(alertTimeout);
-                    msg.dismiss();
-                    if (err.code === 1) { // Denied GPS permisison
-                        this.settings.set(_app_settings_app_settings_service__WEBPACK_IMPORTED_MODULE_1__.SettingKey.locationPrompt, { value: false });
-                    }
-                    rej();
-                });
-            }));
-        });
-    }
-};
-LocationService.ctorParameters = () => [
-    { type: _ionic_angular__WEBPACK_IMPORTED_MODULE_4__.AlertController },
-    { type: _app_log_app_log_service__WEBPACK_IMPORTED_MODULE_0__.AppLogService },
-    { type: _app_settings_app_settings_service__WEBPACK_IMPORTED_MODULE_1__.AppSettingsService },
-    { type: _i18n_i18n_module__WEBPACK_IMPORTED_MODULE_2__.Translations }
-];
-LocationService = (0,tslib__WEBPACK_IMPORTED_MODULE_3__.__decorate)([
-    (0,_angular_core__WEBPACK_IMPORTED_MODULE_5__.Injectable)({
-        providedIn: 'root'
-    })
-], LocationService);
-
-const Translation = {
-    Alert_Permission_Title: 'Service_Location.Alert_Permission_Title',
-    Alert_Permission_Message: 'Service_Location.Alert_Permission_Message',
-    Button_Casual_Deny: 'Common.Button_Casual_Deny',
-};
-
-
-/***/ }),
-
 /***/ 9579:
 /*!*********************************************!*\
   !*** ./src/app/discover/discover.page.scss ***!
@@ -339,7 +226,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ("<ion-header>\n    <app-header></app-header>\n</ion-header>\n\n<ion-content [fullscreen]=\"true\">\n    <div class=\"section-cover\">\n        <img [src]=\"coverPhoto\" class=\"image-cover\" />\n        <div class=\"shadow\"></div>\n    </div>\n    \n    <ion-card class=\"prompt-show-content\">\n        <ion-card-header>\n            <ion-card-title>{{ title }}</ion-card-title>\n        </ion-card-header>\n        \n        <ion-card-content>{{ 'Page_Discover.Tag_Found' | translate }}</ion-card-content>\n\n        <ion-item lines=\"none\">\n            <ion-button [href]=\"'/view/'+tagHandle+'/'+arkHandle\" class=\"ion-margin\" expand=\"block\" size=\"large\" color=\"primary\" slot=\"start\">{{ 'Common.Button_Casual_Confirm' | translate }}</ion-button>\n            <ion-button href=\"/\" class=\"ion-margin\" expand=\"block\" size=\"large\" fill=\"clear\" slot=\"end\">{{ 'Common.Button_Casual_Deny' | translate }}</ion-button>\n        </ion-item>\n\n    <ion-item lines=\"none\" class=\"learn-more\">\n            <ion-button href=\"/start\" fill=\"clear\" color=\"primary\" slot=\"end\">{{ 'Page_Discover.Learn_More' | translate }}</ion-button>\n        </ion-item>\n    </ion-card>\n</ion-content>\n\n<ion-footer>\n    <app-footer></app-footer>\n</ion-footer>\n");
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ("<ion-header>\n    <app-header></app-header>\n</ion-header>\n\n<ion-content [fullscreen]=\"true\">\n    <div class=\"section-cover\">\n        <img [src]=\"coverPhoto\" class=\"image-cover\" />\n        <div class=\"shadow\"></div>\n    </div>\n    \n    <ion-card class=\"prompt-show-content\">\n        <ion-card-header>\n            <ion-card-title>{{ title }}</ion-card-title>\n        </ion-card-header>\n        \n        <ion-card-content>{{ 'Page_Discover.Tag_Found' | translate }}</ion-card-content>\n\n        <ion-item lines=\"none\">\n            <ion-button [href]=\"'/view/'+tagHandle+'/'+arkHandle\" class=\"ion-margin\" expand=\"block\" size=\"large\" color=\"primary\" slot=\"start\">{{ 'Common.Button_Casual_Confirm' | translate }}</ion-button>\n            <ion-button href=\"/\" class=\"ion-margin\" expand=\"block\" size=\"large\" fill=\"clear\" slot=\"end\">{{ 'Common.Button_Casual_Deny' | translate }}</ion-button>\n        </ion-item>\n\n    <ion-item lines=\"none\" class=\"learn-more\">\n            <ion-button href=\"/about\" fill=\"clear\" color=\"primary\" slot=\"end\">{{ 'Page_Discover.Learn_More' | translate }}</ion-button>\n        </ion-item>\n    </ion-card>\n</ion-content>\n\n<ion-footer>\n    <app-footer></app-footer>\n</ion-footer>\n");
 
 /***/ })
 
