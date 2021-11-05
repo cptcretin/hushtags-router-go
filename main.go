@@ -48,6 +48,7 @@ func CreateServer() *http.Server {
 	r.HandleFunc("/apple-app-site-association", serveAppleApp)
 	r.HandleFunc("/privacy", servePrivacyPolicy)
 	r.HandleFunc("/eula", serveEula)
+	r.HandleFunc("/terms", serveEula)
 	r.HandleFunc("/{tagHandle}", serveTag)
 
 	n := negroni.New()
@@ -61,7 +62,7 @@ func CreateServer() *http.Server {
 }
 
 func serveJoin(w http.ResponseWriter, r *http.Request) {
-	http.Redirect(w, r, "/home", http.StatusTemporaryRedirect)
+	http.Redirect(w, r, "/start", http.StatusPermanentRedirect)
 }
 
 func serveNotebook(w http.ResponseWriter, r *http.Request) {
