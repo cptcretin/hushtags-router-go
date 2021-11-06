@@ -49,6 +49,15 @@ func CreateServer() *http.Server {
 	r.HandleFunc("/privacy", servePrivacyPolicy)
 	r.HandleFunc("/eula", serveEula)
 	r.HandleFunc("/terms", serveEula)
+
+	r.HandleFunc("/download-android", func (w http.ResponseWriter, r *http.Request) {
+		http.Redirect(w, r, "https://play.google.com/apps/testing/com.hushtagsapp.android", http.StatusTemporaryRedirect)
+	})
+
+	r.HandleFunc("/download-ios", func (w http.ResponseWriter, r *http.Request) {
+		http.Redirect(w, r, "https://testflight.apple.com/join/TpEaknFV", http.StatusTemporaryRedirect)
+	})
+
 	r.HandleFunc("/{tagHandle}", serveTag)
 
 	n := negroni.New()
