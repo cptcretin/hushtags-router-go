@@ -1,4 +1,4 @@
-module hushtags-web
+module hushtags-web-router
 
 go 1.12
 
